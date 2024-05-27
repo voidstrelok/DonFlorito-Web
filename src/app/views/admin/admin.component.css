@@ -1,0 +1,13 @@
+:host {
+  display: block;
+}
+
+.nav-link{
+  font-family: 'bryant bold';
+  color: black;
+
+}
+
+.nav-link.active{
+  color: var(--azul-1);
+}

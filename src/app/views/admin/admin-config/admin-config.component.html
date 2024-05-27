@@ -1,0 +1,30 @@
+@if($config != undefined)
+{
+<div class="hstack mb-2">
+    <h5 class="me-3 bryant-bold">Apertura :</h5>
+    <ngb-timepicker [(ngModel)]="apertura" [spinners]="false" (ngModelChange)="Cambio()" />
+</div>
+<div class="hstack">
+    <h5 class="me-3 bryant-bold">Cierre :</h5>
+    <ngb-timepicker [(ngModel)]="cierre" [spinners]="false" (ngModelChange)="Cambio()" />
+</div>
+<hr>
+<div class="hstack">
+    <h3>Sistema de Reservas :&nbsp;</h3>
+    @if ($config.reservasEnabled) {
+    <button class="btn btn-rojo" (click)="CambiarSistemaReservas(false)">Deshabilitar</button>
+
+    }@else {
+    <button class="btn btn-azul" (click)="CambiarSistemaReservas(true)">Habilitar</button>
+    }
+</div>
+<hr>
+<div class="text-center">
+    <ngb-alert type="danger" id="warnHorario" hidden>Horario de funcionamiento no válido.</ngb-alert>
+    <ngb-alert type="success" id="successCambios" hidden>Cambios guardados con éxito.</ngb-alert>
+
+    <button class="btn btn-azul btn-grande" (click)="GuardarCambios()">Guardar Cambios</button>
+
+</div>
+
+}

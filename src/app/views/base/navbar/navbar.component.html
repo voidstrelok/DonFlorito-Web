@@ -1,0 +1,29 @@
+<mat-toolbar>
+    <a class="navbar-logo" href="."> <img  src="../assets/res/logos/logo-nav-bar.png"></a>
+    <span class="spacer"></span>
+    <div class="d-none d-lg-block">
+        <a class="navbar-link" href="servicios">{{"servicios" | translate}}</a>
+        <a class="navbar-link" href="contacto">{{ "contacto" | translate}}</a>
+        <a class="navbar-link" href="mi-reserva">{{"mi-reserva" | translate}}</a>
+    </div>
+    <div class ngbDropdown class="d-lg-none me-3">
+        <button type="button" class="btn btn-outline-primary" ngbDropdownToggle>
+            <i class="bi bi-list"></i>
+        </button>
+        <div ngbDropdownMenu >
+            <a ngbDropdownItem class="navbar-link-dropdown" href="servicios">{{"servicios" | translate}}</a>
+            <a ngbDropdownItem class="navbar-link-dropdown" href="contacto">{{ "contacto" | translate}}</a>
+            <a ngbDropdownItem class="navbar-link-dropdown" href="mi-reserva">{{"mi-reserva" | translate}}</a>
+        </div>
+    </div>
+    
+    <div class="vr"></div>
+    <div ngbDropdown class="d-inline-block selector-idioma">
+        <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+            {{ nombreIdiomaPrincipal }}&nbsp;<span [class]="banderaPrincipal"></span>
+        </button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">            
+            <button ngbDropdownItem (click)="CambiarIdioma( lang == 'es-CL' ? 'en-US' : 'es-CL')">{{ nombreIdiomaSecundaria }}&nbsp;<span [class]="banderaSecundaria"></span></button>
+        </div>
+    </div>
+</mat-toolbar>

@@ -1,0 +1,19 @@
+.lista-persona{
+  font-size: 1.2rem;
+}
+
+.persona{
+  border-radius: 6px;
+  padding: 1%;
+}
+.EstadoPersonafalse{
+  border: solid var(--rojo-1) 1px;
+  background-color: #faebec;
+
+}
+
+.EstadoPersonatrue{
+  border: solid var(--verde-1) 1px;
+  background-color: #e7f3eb;
+
+}

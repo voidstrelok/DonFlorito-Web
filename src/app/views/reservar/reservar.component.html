@@ -1,0 +1,206 @@
+@if (params != undefined) { 
+  <div id="reservar1" [(hidden)]="!carroVisible" *ngIf="params.reservasEnabled">
+    <h1 class="text-center titulo-1 verde">{{ "1-seleccionar-servicios" | translate }}</h1>
+    <h4 class="text-center azul parrafos">
+      <a href="contacto">{{ "reservas-especiales-contacto" | translate }}</a>
+    </h4>
+    <div class="row mb-3 text-center">
+      <div class="col-12" >
+        <h2 class="azul titulo-2">{{ "fecha" | translate }}</h2>
+    
+        <div class="selector-fecha text-center">
+          <input id="selector-fecha" class="text-center" matInput [matDatepicker]="picker" [matDatepickerFilter]="FiltroFecha"
+                (dateChange)="cambioFecha($event)">
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </div>
+      </div>
+    </div>
+    <div class="row text-center">
+        <div>
+            <a href="{{'enlace-mapa' | translate}}" target="_blank" ><h2><button class="ver-mapa btn"><i class="bi bi-geo-alt-fill rojo"></i>{{"ver-mapa" | translate}}</button></h2></a>
+        </div>
+    </div>
+    <div class="row">
+        
+    
+    </div>
+    <div class="text-center col-lg-12">    
+    @if (catalogo$ != undefined) {
+      @if(catalogo$.length != 0)
+    {
+      <app-catalogo [fechaReserva]="fechaReserva" [catalogo]="catalogo$" (carroFinal)="catalogoEmit($event)"/>
+    }@else {
+      <h1 class="rojo">{{"sin-servicios"}}</h1>
+    }
+    }
+     
+    </div>
+  </div>
+  <div id="reservar2" [hidden]="!personaVisible">
+    <h1 class="text-center titulo-1 verde">{{ "2-datos-cliente" | translate }}</h1>
+    <h5 class="text-center rojo">{{"datos-obligatorios" | translate}}</h5>
+    <div class="row parrafos">
+      <div class="col-lg-6 offset-lg-3 text-center">
+        <div class="input-group mb-3">
+          <div class="lb-error" id="DIVRutError">
+            &nbsp;
+          </div>
+          <div class="input-group" id="DIVRut">
+            <span class="input-group-text">RUT</span>
+            <input type="text" class="form-control" id="Rut" [(value)]="personaCreacion.rut" (change)="formatearRut($event)">
+          </div>
+        </div>
+        <button class="btn btn-azul mb-3 me-3" *ngIf="!formularioVisible" (click)="regresarAlCarro()">{{"regresar" |
+          translate}}</button>
+        <button class="btn btn-azul mb-3" (click)="buscarPersona()">{{"buscar" |
+          translate}}</button>
+      </div>
+      <div class="row" id="datos-persona" *ngIf="formularioVisible">
+        <div class="col-lg-6">
+          <div class="lb-error" id="DIVPrimerNError">
+            &nbsp;
+          </div>
+          <div class="input-group mb-3 " id="DIVPrimerN">
+            <span class="input-group-text">Nombre</span>
+            <input type="text" class="form-control" [disabled]="!formularioEnabled" id="PrimerN" [(value)]="personaCreacion.nombre">
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="lb-error" id="DIVSegundoNError">
+            &nbsp;
+          </div>
+          <div class="input-group mb-3" id="DIVSegundoN">
+            <span class="input-group-text">Segundo Nombre</span>
+            <input type="text" class="form-control" [disabled]="!formularioEnabled" id="SegundoN" [(value)]="personaCreacion.segundoNombre">
+          </div>
+        </div>
+
+        <div class="col-lg-6">  
+          <div class="lb-error" id="DIVApellidoPError">
+            &nbsp;
+          </div>
+          <div class="input-group mb-3" id="DIVApellidoP">
+            <span class="input-group-text">Apellido Paterno</span>
+            <input type="text" class="form-control" [disabled]="!formularioEnabled" id="ApellidoP" [(value)]="personaCreacion.apellidoPaterno">
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="lb-error" id="DIVApellidoMError">
+            &nbsp;
+          </div>
+          <div class="input-group mb-3" id="DIVApellidoM">
+            <span class="input-group-text">Apellido Materno</span>
+            <input type="text" class="form-control" [disabled]="!formularioEnabled" id="ApellidoM" [(value)]="personaCreacion.apellidoMaterno">
+          </div>
+        </div>
+
+        <div class="col-lg-6">  
+          <div class="lb-error" id="DIVEmailError">
+            &nbsp;
+          </div>
+          <div class="input-group mb-3" id="DIVEmail">
+            <span class="input-group-text">Email</span>
+            <input type="email" class="form-control" [disabled]="!formularioEnabled" id="Email" [(value)]="personaCreacion.email">
+          </div>
+        </div>        
+        
+        <div class="col-lg-6">
+          <div class="lb-error" id="DIVTelefonoError">
+            &nbsp;
+          </div>
+          <div class="input-group mb-3" id="DIVTelefono">
+            <span class="input-group-text">Teléfono</span>
+            <input type="number" class="form-control" [disabled]="!formularioEnabled" id="Telefono" [(value)]="personaCreacion.telefono">
+          </div>
+        </div>
+        
+      </div>
+      <div class="col-lg-6 text-center">
+        <button class="btn btn-azul mb-3 me-3" *ngIf="formularioVisible" (click)="regresarAlCarro()">{{"regresar" |
+          translate}}</button>
+      </div>
+      <div class="col-lg-6 text-center">
+        <button class="btn btn-azul" *ngIf="formularioVisible" (click)="irAlPago()">{{"continuar" | translate}}</button>
+      </div>
+  
+    </div>
+  </div>
+  <div id="reservar3" *ngIf="resumenVisible">
+    <h1 class="text-center titulo-1 verde">{{ "3-resumen-pago" | translate }}</h1>
+    <h5 class="text-center parrafos azul">{{"resumen-pago" | translate}}</h5>
+    <h2 class="parrafos azul text-center">{{fechaReserva}}</h2>
+    <div class="row hstack azul">
+      <div class="col-8 text-end">
+        <h2>{{"servicio"|translate}}</h2>
+      </div>
+      <div class="col-4 text-center">
+        <h2>{{"valor"|translate}}</h2>
+      </div>
+      <hr>
+    </div>
+      <div class="resumen-servicios row azul">
+        @for(servicio of reserva.reservaServicio ; track servicio)
+        {
+          <div class="servicio hstack mb-3 bg-white">
+        <div class="col-8 text-end me-3 ">
+          @if(servicio.idTipoServicio == 6) {
+            <h3 class="parrafos bryant-bold">{{servicio.cantidad}} x {{servicio.nombre | translate}}</h3>
+            <h5 class="parrafos">{{"desde"|translate}} {{params.horaApertura | date: "shortTime"}} {{"hasta"|translate}} {{params.horaCierre | date: "shortTime" }}</h5>  
+          }
+          @else if(servicio.idTipoServicio == 7 || servicio.idTipoServicio == 8)
+          {
+            <h3 class="parrafos bryant-bold">{{servicio.cantidad}} x {{"entrada" | translate}} {{servicio.nombre | translate}}</h3>
+            <h5 class="parrafos">{{"desde"|translate}} {{params.horaApertura | date: "shortTime"}} {{"hasta"|translate}} {{params.horaCierre | date: "shortTime" }}</h5>           
+          }
+          @else {  
+          <h3 class="parrafos bryant-bold">{{servicio.cantidad}} {{"partido"|translate}} - {{servicio.nombre | translate}}</h3>
+          <h5 class="parrafos">{{"desde"|translate}}&nbsp;{{servicio.horaComienzo | date: "shortTime"}} - {{servicio.minutos*servicio.cantidad}} min.</h5>  
+          }
+        </div>
+        <div class="col-4 text-center fs-3">
+          <h5 class="parrafos">$ {{servicio.precio*servicio.cantidad}}</h5>
+        </div>
+      </div>
+        }
+        <hr>
+        <div class="col-lg-8 text-center">
+          <h2>{{"total-reserva" | translate}}</h2>
+        </div>
+        <div class="col-lg-4 text-center">
+          <h2>${{getTotalCarro()}}</h2>
+        </div>
+        <div class="col-6 text-center">
+          <button class="btn btn-azul" (click)="cancelarReserva()">{{"cancelar"|translate}}</button>
+        </div>
+        <div class="col-6 text-center">
+          <button class="btn btn-azul" (click)="carroEnviado=false;open(terminos)">{{"confirmar-reserva"|translate}}</button>
+        </div>
+      </div>
+      <div>
+        
+      </div>
+      
+      
+  </div>
+
+}
+
+<ng-template #terminos let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">{{"atencion" | translate}}</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+	</div>
+	<div class="modal-body">
+			<div class="mb-3 text-center">
+        <div class="parrafos azul">{{"leer-terminos"| translate}}</div>
+				<a class="btn btn-azul" target="_blank" href="{{'enlace-terminos' | translate}}">{{"btn-terminos" | translate}}</a>
+			</div>
+	</div>
+	<div class="modal-footer">
+    <div class="parrafos rojo">{{"mensaje-confirmar-reserva"|translate}}</div>
+		<button type="button" class="btn btn-azul" [disabled]="carroEnviado" (click)="carroEnviado=true;modal.close();enviarCarro();">{{"confirmar-reserva"|translate}}</button>
+	</div>
+</ng-template>

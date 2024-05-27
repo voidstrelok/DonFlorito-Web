@@ -1,0 +1,45 @@
+.calendario-disponible span{
+  font-family: "Bryant Bold";
+  font-size: 1.2rem;
+}
+
+.calendario-reservado span{
+  font-family: "Bryant Bold";
+  font-size: 1.2rem;
+  color: white;
+}
+
+.cal-day-view .cal-current-time-marker{
+  display: none;
+}
+.calendario-reservado .cal-event{
+  background-color: var(--rojo-1);
+  border-color: black;
+
+}
+
+.visor-mapa {
+  width: 100%;
+  height: 33rem;
+}
+
+.quinchos-piscinas{
+  background-position: 91% 14%;
+
+}
+.quinchos-canchas{
+  background-position: 42% 83%;
+
+}
+.mapa-default{
+  background-size: 120%;
+}
+
+div .cal-event-container{
+  left: 3% !important;
+  width: 97% !important;
+}
+
+.cal-week-view .cal-time {
+  width: 80px;
+}

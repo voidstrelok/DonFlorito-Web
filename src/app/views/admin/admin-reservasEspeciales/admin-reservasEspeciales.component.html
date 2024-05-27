@@ -1,0 +1,94 @@
+  <div class="acciones mb-3 text-end">
+
+    <div class="hstack">
+      <h4 class="azul">Fecha:&nbsp;</h4>
+      <select  id="anio" [selectedIndex]="selAnio" (change)="Refrescar()">
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+        <option value="2027">2027</option>
+      </select>
+      <select id="mes" [selectedIndex]="selMes" (change)="Refrescar()">
+        <option value="1">Enero</option>
+        <option value="2">Febrero</option>
+        <option value="3">Marzo</option>
+        <option value="4">Abril</option>
+        <option value="5">Mayo</option>
+        <option value="6">Junio</option>
+        <option value="7">Julio</option>
+        <option value="8">Agosto</option>
+        <option value="9">Septiembre</option>
+        <option value="10">Octubre</option>
+        <option value="11">Noviembre</option>
+        <option value="12">Diciembre</option>
+      </select>
+      
+      <button class="btn btn-azul ms-auto" (click)="IngresarReservaEspecial()" >Agregar Reserva Especial</button>
+
+    </div>
+
+  </div>
+@if ($reservas != undefined) {
+  @if ($reservas.length== 0) {
+    <h4 class="text-center">No hay reservas especiales vigentes.</h4>
+  }@else{
+    <div class="lista-reserva">
+      <div class="hstack reserva">
+        <div class="col-lg-1 text-center bryant-bold">
+          Código
+        </div>
+        <div class="col text-center bryant-bold">
+          Fecha Desde
+        </div>
+        <div class="col text-center bryant-bold">
+          Fecha Hasta
+        </div>
+        <div class="col text-center bryant-bold">
+          Servicio
+        </div>
+        <div class="col text-end bryant-bold">
+          Acciones
+        </div>
+      </div>
+      @for (reserva of $reservas| slice: (pagina-1) * elemPagina : pagina * elemPagina;; track $index) {
+        <div class="reserva hstack mb-1 EstadoReserva{{reserva.isEnabled}}">
+          <div class="col-lg-1 text-center">
+            {{"R"+reserva.id}}
+          </div>
+          <div class="col text-center">
+            {{reserva.fechaComienzo | date : "short"}} 
+          </div>
+          <div class="col text-center">
+            {{reserva.fechaTermino | date : "short"}}
+          </div>   
+          @if(reserva.isRecinto){
+            <div class="col text-center">
+              Todo el recinto
+            </div>  
+          }@else if(reserva.tipoServicio) {
+            <div class="col text-center">
+              {{reserva.tipoServicio.nombre}}
+              @if(reserva.servicio !=null)
+              {
+                {{": "+reserva.servicio.nombre}}
+              }
+            </div>
+          }
+          
+          <div class="col text-end">
+<!--             <a href="mi-reserva/{{reserva.id}}" title="Información Reserva"><i class="bi bi-info-circle"></i></a>&nbsp;-->
+            @if(reserva.isEnabled){
+              <a style="cursor:pointer" title="Cancelar Reserva" (click)="CancelarReserva(reserva.id)"><i class="rojo bi bi-x-circle"></i></a>
+            }
+            
+            
+          </div>
+        </div>
+      }
+      <ngb-pagination [collectionSize]="$reservas.length" [pageSize]="elemPagina" [(page)]="pagina" [directionLinks]="false" />
+    
+    </div>
+  }
+  
+}
+

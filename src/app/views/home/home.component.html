@@ -1,0 +1,46 @@
+<div class="welcome-div col-lg-12">
+  <div class="welcome-bar">
+      <img class="welcome-logo" src="../../../assets/res/logos/logo-completo-color.png">
+  </div>
+  <div class="welcome-botones text-center row">
+    <div class="col-lg-6 mb-2">
+        <button (click)="scroll('como-llegar')" type="button" class="btn btn-welcome btn-lg mx-2">{{"como-llegar" | translate}}</button>
+    </div>
+    <div class="col-lg-6 mb-2">
+        <a href="reservar"><button type="button" class="btn btn-welcome btn-lg mx-2">{{"reservar" | translate}}</button></a>
+    </div>
+  </div>
+</div>
+<div class="contenido-info col-lg-12" >
+  <div class="conoce-mas">
+  <div class="row text-center">
+      <button (click)="scroll('logo-info')"  class="btn col-lg-12 mt-2">
+          <h2 class="titulo-2">{{ "conoce-mas" | translate }}</h2>
+          <div class="downArrow bounce">
+            <i class="bi bi-caret-down"></i>            
+          </div>
+      </button>
+
+      <div>
+          <img id="logo-info" class="logo-info" src="../../../assets/res/logos/logo-nav-bar.png">
+          <hr>
+          
+          <p>{{"sobre-nosotros" | translate}}</p>
+          <p class="titulo-2">{{"horario-atencion" | translate}}</p>
+          <hr>
+          <p class="info-home">{{"dias-atencion" | translate}}</p>
+          <p>2:00 AM - 7:00 PM</p>
+          <a class="info-home" href="https://www.instagram.com/complejo_don_florito/" target="_blank"><p><i class="bi bi-instagram"></i>&nbsp;complejo_don_florito</p></a>
+          <a class="info-home" href="https://wa.me/56995278783" target="_blank"><p><i class="bi bi-whatsapp"></i>&nbsp;+569 9527 8783</p></a>
+          <a class="info-home" href="mailto:contacto@donflorito.cl"><p><i class="bi bi-envelope"></i>&nbsp;contacto&#64;donflorito.cl</p></a>
+          <p id="como-llegar" class="titulo-2">{{"ubicacion" | translate}}</p>
+          <hr>
+          <p class="info-home"> <i class="bi bi-geo-alt-fill"></i>&nbsp;Parcela 226, Quebrada Peñuelas</p>
+          <div class="mapa">
+              <app-mapa></app-mapa>
+          </div> 
+      </div>
+          
+  </div>
+</div>
+</div>

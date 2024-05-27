@@ -1,0 +1,177 @@
+@if (catalogo) { @if (hayCanchas) {
+<div class="tabla-canchas">
+  <div class="row">
+    <div class="col-lg-8">
+      <h1 class="verde d-none d-sm-block">{{ "canchas" | translate }}</h1>
+    </div>
+    <div class="col-lg-4 text-center">
+      <h1 class="verde d-none d-sm-block">{{ "horario" | translate }}</h1>
+    </div>
+  </div>
+
+  @for (tipoServicio of catalogo; track tipoServicio.id) 
+  { 
+    @if (tipoServicio.id != EnumTipoServicio.PiscinaAM && tipoServicio.id != EnumTipoServicio.PiscinaGeneral && tipoServicio.id != EnumTipoServicio.Quincho) 
+    {
+      <div class="container">
+        <div class="row selector-cancha" id="selector-cancha{{tipoServicio.id}}">
+          <div class="col-lg-8 info-cancha">
+            <div class="row ">
+              <div class="col-lg-12">
+
+                  <div class="titulo-servicio hstack">
+                    <h3 class="text-start azul mb-0">{{ tipoServicio.nombre | translate }}&nbsp;</h3>
+                    <div class="parrafos text-start azul fs-5" *ngIf="tipoServicio.servicio.length >= 1">({{ tipoServicio.servicio.length }} {{ "canchas-disponibles" | translate }})</div>
+                  </div>                                        
+                    <div class=" precio-servicio parrafos azul text-start"
+                      >{{ tipoServicio.precioServicio[0].precio }}$
+                      {{ "por-cada-partido-de" | translate }}
+                      {{ tipoServicio.precioServicio[0].minutos }}
+                      {{ "minutos" | translate }}
+                </div>
+
+              </div>
+              
+            </div>
+          </div>
+          <div class="col-lg-4 text-center horario-cancha Detalle{{tipoServicio.id}}">
+            <button class="azul btn boton-seleccionar-horario" (click)="showModalHorario(content,tipoServicio.id)">
+              <div class="hstack">
+                <i class="bi bi-calendar3 rojo">&nbsp;</i>
+                <h5 class="parrafos mb-0">
+                  {{"seleccionar-horario" | translate}} 
+                </h5> 
+              </div>
+                              
+            </button>
+            <div class="seleccionado" id="seleccionado-cont{{tipoServicio.id}}" hidden>
+              <div class="hstack">
+                <div class="vstack">
+                  <h4 class="parrafos azul" id="seleccionado{{tipoServicio.id}}"></h4>
+                  <h4 class="parrafos azul" id="totalservicio{{tipoServicio.id}}"></h4>
+                </div>
+                <button class="btn" (click)="CarroQuitar(tipoServicio.id)" ><i class="bi bi-trash-fill"></i></button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+    </div>
+    }
+   
+  }
+
+</div>
+<hr class="verde">
+
+}
+@if (Piscinas!=undefined && hayPiscina) {
+  <div class="row selector-camping mt-3">
+    <div class="col-lg-7">
+      <div class="row ">
+        <div class="col-lg-12 col-sm-12 col-xs-12">
+          <label class="form-check-label" for='CB{{Piscinas[0].id}}'>
+            <div>
+              <div class="col">
+                <h2 class="verde">{{"acceso-piscina" | translate}}</h2>
+              </div>              
+              <h4 class="parrafos verde">{{Piscinas[0].precioServicio[0].precio}}$ {{"descripcion-piscina" | translate}} <br> {{Piscinas[1].precioServicio[0].precio}}$ {{"adulto-mayor" | translate}}</h4>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-5 Detalle{{Piscinas[0].id}}">
+      <div class="row text-center">
+        <h4 class="verde">{{"entradas" | translate}}</h4>
+      </div>
+
+      <div class="row text-center">
+        <div class="col-lg-6">
+
+            <h5 class="parrafos verde">{{"general" | translate}}</h5>
+
+          <div class="row">
+            <input type="number" class="form-control input-numerico" id='entradasPiscina-{{Piscinas[0].id}}' value="0" min="0" max="10" (change)="InputEntradasOnChange($event,10,Piscinas[0].id)">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="row">
+            <h5 class="parrafos verde">{{"entrada-adulto-mayor" | translate}}</h5>
+          </div>
+          <div class="row">
+            <input type="number" class="form-control input-numerico" id='entradasPiscina-{{Piscinas[1].id}}' value="0" min="0" max="10" (change)="InputEntradasOnChange($event,10,Piscinas[1].id)">
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div>
+}
+@if (Quinchos != undefined && hayQuincho) {
+  <div class="row selector-camping">
+    <div class="col-lg-6">
+      <div class="row ">
+        <div class="col-lg-12 col-sm-12 col-xs-12">
+          <label class="form-check-label" for='CB{{Quinchos.id}}'>
+            <div>
+              <div class="col">
+                <h2 class="verde">{{"reserva-quincho" | translate}}</h2>
+              </div>              
+              <h4 class="parrafos verde">{{Quinchos.precioServicio[0].precio}}$ {{"descripcion-quincho" | translate}}</h4>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-4" id="ZonaQuincho">
+      <h5 class="parrafos verde">{{"zona-quinchos" | translate}}</h5>
+      <select class="form-select" id="sel-quincho" (change)="CambioZonaQuinchos($event)">
+        <option value="0">{{"seleccionar-zona" | translate}}</option>
+        <option value="{{servicio.id}}" *ngFor="let servicio of Quinchos.servicio">{{servicio.nombre | translate}}</option>
+      </select> 
+    </div>
+
+    <div class="col-lg-2" id="NumQuinchos" hidden>
+      <div class="row text-center">
+        <h5 class="parrafos verde">{{"n-quinchos" | translate}}</h5>
+      </div>
+      <input type="number" class="form-control selector partidos input-numerico" id='entradasQuincho' value="0" min="0" max="10" (change)="InputEntradasOnChange($event,10,Quinchos.id)">
+
+    </div>
+  </div>
+
+}
+<div class="row">
+  <div class="col-lg-8">
+    <h1>{{"total-reserva" | translate}}</h1>
+  </div>
+  <div class="col-lg-4">
+    <h1>${{totalCarro}}</h1>
+  </div>
+</div>
+<hr class="azul mt-0">
+<div class="row">
+  <button class="btn btn-azul" *ngIf="Carro.length > 0" (click)="guardarCarro()">{{"continuar" | translate}}</button>
+</div>
+
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h1 class="modal-title azul" id="modal-basic-title">{{"seleccionar-horario" | translate}}</h1>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<div class="container">
+      <div class="row mt-3">
+        <selector-servicio 
+          [idTipoServicio]="idServicioModal"
+          [fechaReserva]="fechaReserva"
+          (horarioSeleccionado)="modal.close();GuardarHorario($event)"
+          (zonaQuinchoSeleccionado)="modal.close();GuardarZonaQuincho($event)"></selector-servicio>
+      </div>
+    </div>
+	</div>
+  <app-loading></app-loading>
+
+</ng-template>
+}

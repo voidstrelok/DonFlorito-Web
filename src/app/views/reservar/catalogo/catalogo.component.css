@@ -1,0 +1,108 @@
+.selector-cancha {
+  background-color: white;
+  margin-bottom: 2px !important;
+}
+.selector-camping {
+  background-color: white;
+  margin-bottom: 2px !important;
+  padding: 1%;
+}
+.info-cancha {
+  padding: 2%;
+}
+
+.partidos-cancha {
+  border-left: var(--fondo-principal) solid 2px;
+  padding: 2%;
+}
+
+.horario-cancha {
+  border-left: var(--fondo-principal) solid 2px;
+  padding: 2%;
+}
+
+
+
+.form-check-input {
+  width: 2em;
+  height: 2em;
+}
+.selector-partidos {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.calc-partidos {
+  font-size: small;
+}
+label {
+  font-family: "Bryant Regular";
+}
+.checkbox-servicio {
+  margin: auto 0;
+}
+
+.input-numerico {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.seleccionado {
+  background: #00529f;
+  border-radius: 9px;
+  padding: 2%;
+}
+
+.seleccionado h4 {
+  font-size: 1vw;
+  color: white;
+  margin: 0;
+}
+
+.seleccionado button{
+  color: var(--rojo-1);
+  background-color: white;
+  padding: 3%;
+}
+
+.cancha-seleccionada{
+  border: 1px solid var(--azul-1);
+  border-radius: 5px;
+}
+
+.cancha-no-seleccionada{
+  border: none;
+  border-radius: 0;
+}
+
+@media (max-width: 500px) { /* hasta sm */
+  .horario-cancha {
+    border-left: 0;
+    padding: 2%;
+  }
+  .info-cancha {
+    padding: 5%;
+  }
+  .titulo-servicio{
+    flex-direction: column !important;
+  }  
+  .titulo-servicio h3{
+    text-align: center !important;
+  }
+  .precio-servicio{
+    text-align: center !important;
+  }
+  .seleccionado {
+    padding: 4%;
+  }
+  
+  .seleccionado h4 {
+    font-size: 1.3rem;
+  }
+
+  .selector-camping {
+    margin-bottom: 10px !important;
+    padding: 7%;
+  }
+
+}

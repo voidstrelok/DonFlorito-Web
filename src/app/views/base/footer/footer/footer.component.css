@@ -1,0 +1,78 @@
+.futre {
+  background-color: var(--azul-1);
+  padding: 2rem 3rem 0;
+  z-index: 2;
+  position: absolute;
+  width: 100%;
+  margin: 0 !important;
+}
+
+.futre hr {
+  color: white;
+  margin: 1rem 0;
+}
+.futre .info-home {
+  font-family: "Bryant Bold";
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+}
+.logo-footer {
+  width: 100%;
+}
+.logo-webpay {
+  width: 21rem;
+}
+
+.thepit-firma {
+  color: white;
+  font-size: 1rem;
+  font-family: "Anta";
+  text-align: center;
+}
+.thepit-firma a {
+  color: white;
+
+  text-decoration: none;
+}
+
+@media (max-width: 576px) {
+  /* hasta sm */
+  .futre .info-home {
+    font-family: "Bryant Bold";
+    font-size: 1.3rem;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.site-map{
+  color: white;
+}
+
+.site-map a{
+  font-family: "Bryant Regular";
+  text-decoration: none;
+  color: white;
+  font-size: 1.4rem;
+}
+
+.contacto-movil a .bi{
+  font-size: 3rem;
+}
+
+@media (max-width: 500px) { /* hasta sm */
+  h3{
+    font-size: 2rem;
+  }
+  .site-map{
+    text-align: center !important;
+  }
+  a{
+    font-size: 1.3rem;
+  }
+
+  .logo-footer{
+    margin-bottom: 20px;
+  }
+}

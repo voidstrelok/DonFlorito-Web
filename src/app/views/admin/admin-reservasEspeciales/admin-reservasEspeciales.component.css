@@ -1,0 +1,61 @@
+.EstadoReservafalse{
+  border: solid var(--rojo-1) 1px;
+  background-color: #faebec;
+
+}
+
+.EstadoReservatrue{
+  border: solid var(--verde-1) 1px;
+  background-color: #e7f3eb;
+
+}
+
+.lista-reserva{
+  font-size: 1.2rem;
+}
+
+.reserva{
+  border-radius: 6px;
+  padding: 1%;
+}
+
+.form-check {
+  width: fit-content !important;
+  margin: 0 auto !important;
+}
+
+.custom-day {
+  text-align: center;
+  padding: 0.185rem 0.25rem;
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+}
+.custom-day.focused {
+  background-color: #e6e6e6;
+}
+.custom-day.range,
+.custom-day:hover {
+  background-color: rgb(2, 117, 216);
+  color: white;
+}
+.custom-day.faded {
+  background-color: rgba(2, 117, 216, 0.5);
+}
+
+ngb-timepicker{
+
+  width: 7rem;
+    display: block;
+    margin: auto;
+
+}
+
+p{
+  font-size: 1.3rem;
+}
+
+.reserva{
+  font-size: 1.3rem;
+
+}

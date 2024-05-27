@@ -1,0 +1,142 @@
+@if(buscarReservaVisible){
+  <h1 class="azul text-center">{{"buscar-reserva"|translate}}</h1>
+  <h3 class="parrafos azul text-center">{{"instruccion-buscar-reserva"|translate}}</h3>
+  <div class="lb-error" id="DIVNReservaError">
+    &nbsp;
+  </div>
+  <div class="input-group mb-3" id="DIVNReserva">
+    <span class="input-group-text">{{"n-reserva"|translate}}</span>
+    <input type="text" [placeholder]='"placeholder-nReserva"|translate' class="form-control" id="NReserva">
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-lg-4">
+      <button class="btn btn-azul" (click)="BuscarReserva()">{{"buscar-reserva"|translate}}</button>
+    </div>
+  </div>
+
+}
+@if (!PagarReserva && !buscarReservaVisible && reserva != null) {
+    <h1 class="azul text-center">{{"info-reserva" | translate}}</h1>
+    <h1 class="bryant-bold text-center">N° DF{{reserva.id}}</h1>
+    <h2 class="{{estadoReserva}} text-center">{{reserva.estadoReserva.nombre | translate}}</h2>
+    <h2 class="parrafos azul text-center">{{"fecha" | translate}}: {{reserva.fechaReserva | date: "shortDate"}}</h2>
+    <h2 class="parrafos azul text-center">{{reserva.persona.rut}} {{reserva.persona.nombre| translate}}</h2>
+    <div class="row hstack azul">
+      <div class="col-8 text-end">
+        <h2>{{"servicio"|translate}}</h2>
+      </div>
+      <div class="col-4 text-center">
+        <h2>{{"valor"|translate}}</h2>
+      </div>
+      <hr>
+    </div>
+      <div class="resumen-servicios row azul">
+    @for(servicio of reserva.reservaServicio ; track servicio)
+        {
+          <div class="servicio hstack mb-3 bg-white">
+        <div class="col-8 text-end me-3 ">
+          @if(servicio.servicio.idTipoServicio == 6) {
+            <h3 class="parrafos bryant-bold">{{servicio.cantidad}} x {{servicio.servicio.nombre | translate}}</h3>
+          }
+          @else if(servicio.servicio.idTipoServicio == 7 || servicio.servicio.idTipoServicio == 8)
+          {
+            <h3 class="parrafos bryant-bold">{{servicio.cantidad}} x {{"entrada" | translate}} {{servicio.servicio.nombre | translate}}</h3>
+          }
+          @else {  @if (servicio.precioServicio.minutos) {
+          <h3 class="parrafos bryant-bold">{{servicio.cantidad}} {{"partidos"|translate}} - {{servicio.servicio.nombre | translate}}</h3>
+          <h5 class="parrafos">{{"desde"|translate}}&nbsp;{{servicio.horaComienzo | date: "shortTime"}} - {{servicio.precioServicio.minutos*servicio.cantidad}} min.</h5>  
+          }}
+        </div>
+        <div class="col-4 text-center fs-3">
+          <h5 class="parrafos">$ {{servicio.precioServicio.precio*servicio.cantidad}}</h5>
+        </div>
+      </div>
+        }
+        <hr>
+        <div class="col-lg-8 text-center">
+          <h2>{{"total-reserva" | translate}}</h2>
+        </div>
+        <div class="col-lg-4 text-center">
+          <h2>${{getTotalCarro()}}</h2>
+        </div>
+      </div>
+      <div class="text-center">
+        <img [src]="QR" width="300">
+
+      </div>      
+      <div class="row text-center mt-5">
+        <div class="">
+          <button class="btn btn-azul" (click)="BuscarOtraReserva()">{{"buscar-otra-reserva"|translate}}</button>
+        </div>
+      </div>
+}
+
+@if(PagarReserva){
+  <h1 class="azul text-center">{{"info-reserva" | translate}}</h1>
+    <h2 class="{{estadoReserva}} text-center">{{"Pago Pendiente" | translate}} <countdown class="rojo" [config]="timer" (event)="handleEvent($event)"></countdown></h2>
+    <h2 class="parrafos azul text-center">{{"fecha" | translate}}: {{NuevaReserva.fechaReserva | date: "shortDate"}}</h2>
+    <h2 class="parrafos azul text-center">{{NuevaReserva.persona.rut}} {{NuevaReserva.persona.nombre}} {{NuevaReserva.persona.apellidoPaterno}} {{NuevaReserva.persona.apellidoMaterno}}</h2>
+    <div class="row hstack azul">
+      <div class="col-8 text-end">
+        <h2>{{"servicio"|translate}}</h2>
+      </div>
+      <div class="col-4 text-center">
+        <h2>{{"valor"|translate}}</h2>
+      </div>
+      <hr>
+    </div>
+      <div class="resumen-servicios row azul">
+    @for(servicio of NuevaReserva.reservaServicio ; track servicio)
+        {
+          <div class="servicio hstack mb-3 bg-white">
+        <div class="col-8 text-end me-3 ">
+          @if(servicio.servicio.idTipoServicio == 6) {
+            <h3 class="parrafos bryant-bold">{{servicio.cantidad}} x {{servicio.servicio.nombre | translate}}</h3>
+          }
+          @else if(servicio.servicio.idTipoServicio == 7 || servicio.servicio.idTipoServicio == 8)
+          {
+            <h3 class="parrafos bryant-bold">{{servicio.cantidad}} x {{"entrada" | translate}} {{servicio.servicio.nombre | translate}}</h3>
+          }
+          @else {  @if (servicio.precioServicio.minutos) {
+          <h3 class="parrafos bryant-bold">{{servicio.cantidad}} {{"partidos"|translate}} - {{servicio.servicio.nombre | translate}}</h3>
+          <h5 class="parrafos">{{"desde"|translate}}&nbsp;{{servicio.horaComienzo | date: "shortTime"}} - {{servicio.precioServicio.minutos*servicio.cantidad}} min.</h5>  
+          }}
+        </div>
+        <div class="col-4 text-center fs-3">
+          <h5 class="parrafos">$ {{servicio.precioServicio.precio*servicio.cantidad}}</h5>
+        </div>
+      </div>
+        }
+        <hr>
+        <div class="col-lg-8 text-center">
+          <h2>{{"total-reserva" | translate}}</h2>
+        </div>
+        <div class="col-lg-4 text-center">
+          <h2>${{getTotalCarro()}}</h2>
+        </div>
+      </div>
+      <div class="text-center">
+        <img [src]="QR" width="300">
+
+      </div>
+      <div class="text-center col-lg-12" *ngIf="NuevaReserva.idEstadoReserva==1">
+        <form method="post" action="" id="formPago">
+          <input type="hidden" id="token" name="token_ws" value="" />
+          <button type="button" class="btn btn-azul" (click)="Pagar()">{{"pagar" | translate}}></button> 
+      </form>
+      </div>
+    
+}
+
+
+
+@if(reserva404Visible){
+  <div class="text-center">
+    <p class="titulo-1">{{"reserva-notfound" | translate}}</p>
+    <a href="mi-reserva" >
+        <img src="../../../assets/res/logos/Queltehue2.png">
+        <h2 class="titulo-2">{{"regresar" | translate}}</h2>
+    </a>
+    <p></p>
+</div>
+}

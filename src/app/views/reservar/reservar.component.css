@@ -1,0 +1,29 @@
+.selector-fecha{
+  margin: 0 auto;
+}
+
+.selector-fecha input{
+  font-size: 1.5rem;
+  font-family: "Bryant Bold";
+}
+
+.ver-mapa{
+  font-size: 1.5rem;
+}
+
+.modal-dialog{
+  margin-top: 6rem !important
+}
+
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}

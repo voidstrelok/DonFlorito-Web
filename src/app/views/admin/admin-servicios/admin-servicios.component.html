@@ -1,0 +1,71 @@
+@if($config != undefined)
+{
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"><h4>Servicio</h4></th>
+            <th scope="col"><h4>Habilitado</h4></th>
+            <th scope="col"><h4>Precio</h4></th>
+          </tr>
+        </thead>
+        <tbody>
+        
+@for (servicio of $config.servicios; track $index) {
+    @if(servicio.id < 11){
+    <tr>
+        <td>
+            <label class="form-check-label bryant-bold" for="flexSwitch{{servicio.id}}">{{servicio.nombre}}&nbsp;</label>
+        </td>
+        <td>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitch{{servicio.id}}" (change)="CambiaReservas($index)" [(checked)]="servicio.isEnabled">
+            </div>
+        </td>
+        <td>
+            <div class="input-group mb-3">
+                <span class="input-group-text">$</span>
+                <input type="number" min="0" class="form-control" [(value)]="servicio.precio" (change)="CambiaPrecio($index,$event)">
+              </div>
+        </td>
+    </tr>
+    }
+
+
+
+}
+<tr>
+    <td>
+        <label class="form-check-label bryant-bold" for="flexSwitchPiscina">Acceso Piscinas</label>
+    </td>
+    <td>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchPiscina"
+            (change)="CambiaReservas(11)" [(checked)]="$config.piscinasEnabled">
+        </div>
+    </td>
+    <td>
+        General
+        <div class="input-group mb-3">
+            <span class="input-group-text">$</span>
+            <input type="number" min="0" class="form-control" [(value)]="$config.servicios[10].precio" (change)="CambiaPrecio(10,$event)">
+        </div>
+        Adulto Mayor
+        <div class="input-group mb-3">
+            <span class="input-group-text">$</span>
+            <input type="number" min="0" class="form-control" [(value)]="$config.servicios[11].precio" (change)="CambiaPrecio(11,$event)">
+        </div>
+    </td>
+</tr>
+
+</tbody>
+</table>
+
+<div class="text-center">
+    <ngb-alert type="danger" id="warnHorario" hidden>Horario de funcionamiento no válido.</ngb-alert>
+    <ngb-alert type="success" id="successCambios" hidden>Cambios guardados con éxito.</ngb-alert>
+
+    <button class="btn btn-azul btn-grande" (click)="GuardarCambios()">Guardar Cambios</button>
+
+</div>
+
+}

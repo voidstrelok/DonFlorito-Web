@@ -1,0 +1,39 @@
+.logo-info{
+  max-width: 100%;
+  height: auto;
+}
+.info-home{
+  font-family: 'Bryant Bold';
+  font-size: 3.5vh;
+  color: var(--azul-1);
+  text-decoration: none;
+  
+}
+
+.info-home p{
+  font-family: 'Bryant Bold';
+  font-size: 3.5vh;
+  color: var(--azul-1);
+}
+
+@media (max-width: 500px) { /* hasta sm */
+  .info-home{
+    font-size: 21px;    
+  }
+
+  .info-home p{
+    font-size: 21px;    
+  }
+}
+
+.bi-geo-alt-fill
+{
+  color: var(--rojo-1);
+}
+.bi-whatsapp
+{
+  color: green;
+}.bi-instagram
+{
+  color: #c20c43;
+}

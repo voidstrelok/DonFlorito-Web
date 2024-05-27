@@ -1,0 +1,35 @@
+.boton-servicios img{
+  width: 5rem;
+
+}
+
+.boton-servicios{
+  background-color: var(--verde-1);
+  height: 13rem;
+  padding: 5%;
+}
+
+.boton-servicios h1{
+  color: white;
+  padding-left: 2rem;
+  border-radius: 12px;
+}
+
+.picsum-img-wrapper img{
+  width: 100%;
+}
+
+.texto-servicios{
+  background-color: white;
+  font-size: 1.3rem;
+  padding: 3%;
+}
+.texto-servicios h4{
+  font-family: 'Bryant Bold' !important;
+}
+
+@media (max-width: 500px) { /* hasta sm */
+  h1{
+    font-size: 1.3rem;
+  }
+}

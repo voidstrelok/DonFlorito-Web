@@ -1,0 +1,215 @@
+/* You can add global styles to this file, and also import other style files */
+@import "assets/res/bootstrap/font/bootstrap-icons.css";
+@import "assets/res/flag-icons/css/flag-icons.css";
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
+
+html,
+body {
+
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  background-color: white ;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+app-root{
+  flex: 1;
+}
+
+@font-face {
+  font-family: "Bryant Regular";
+  src: url("assets/res/fonts/Bryant-Regular.ttf");
+}
+@font-face {
+  font-family: "Bryant Ligth";
+  src: url("assets/res/fonts/Bryant-Light.ttf");
+}
+@font-face {
+  font-family: "Bryant Bold";
+  src: url("assets/res/fonts/Bryant-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Controller";
+  src: url("assets/res/fonts/controller-five-oblicue.ttf");
+}
+
+@font-face {
+  font-family: "Anta";
+  src: url("assets/res/fonts/Anta-Regular.ttf");
+}
+
+:root {
+  --azul-1: #00529f;
+  --verde-1: #0e8937;
+  --rojo-1: #d03543;
+
+  --fondo-principal: #f2f2f2;
+  --fondo-panel: #d9d9d9;
+  --texto-parrafo: #313131;
+  --alto-navbar: 5rem;
+}
+.contenido-pagina {
+  z-index: 0;
+  position: relative;
+  transition: all 0.3s ease;
+  padding-top: var(--alto-navbar);
+  background-image: url("assets/res/fotos/fondo-contenido.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+.panel-contenido {
+  background-color: var(--fondo-principal);
+  max-width: 70%;
+  margin: 0 auto;
+  padding: 4vh 7vw 5vh;
+  -webkit-box-shadow: 0px 0px 61px 55px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 61px 55px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 61px 55px rgba(0, 0, 0, 0.75);
+}
+hr {
+  color: var(--azul-1);
+  opacity: 1;
+  border-top: 0.2rem solid;
+  max-width: 90%;
+  margin: 1.5rem auto;
+}
+.vr {
+  max-height: 100%;
+  margin: auto 0;
+}
+
+p {
+  font-family: "Bryant Regular";
+  font-size: 1.5rem;
+}
+
+h1,h2,h3,h4 {
+  font-family: "Controller";
+}
+
+.texto-servicios h3{
+  font-family: 'Bryant Bold' !important;
+}
+.titulo-1 {
+  font-family: "Controller";
+  color: var(--azul-1);
+  font-size: 2.5vw;
+}
+.titulo-2 {
+  font-family: "Controller";
+  color: var(--azul-1);
+  font-size: 2vw;
+}
+
+@media (max-width: 576px) {
+  /* hasta sm */
+  .panel-contenido {
+    max-width: 95%;
+  }
+  .titulo-1 {
+    font-size: 2rem;
+  }
+  .titulo-2 {
+    font-size: 1.8rem;
+  }
+}
+
+.verde{
+  color: var(--verde-1);
+}
+.azul{
+  color: var(--azul-1);
+}
+.rojo{
+  color: var(--rojo-1);
+}
+.parrafos{
+  font-family: 'Bryant Regular';
+}
+
+.btn-azul{
+  background-color: var(--azul-1);
+  font-family: 'Bryant Regular';
+  font-size: 1.5rem;
+  color: white;
+}
+
+.btn-azul:hover{
+  background-color: #3375b2;
+  color: white;
+
+}
+
+.btn-azul:focus{
+  background-color: #3375b2 !important;
+
+}
+
+.btn-azul:active{
+  background-color: #3375b2 !important;
+
+}
+
+.btn-rojo{
+  background-color: var(--rojo-1);
+  font-family: 'Bryant Regular';
+  color: white;
+}
+
+.btn-rojo:hover{
+  background-color: #de727b;
+  color: white;
+
+}
+
+.btn-rojo:focus{
+  background-color: #de727b !important;
+
+}
+
+.btn-rojo:active{
+  background-color: #de727b !important;
+
+}
+.btn-grande{
+  font-size: 2rem;
+}
+
+
+
+.bryant-bold{
+  font-family: 'Bryant Bold';
+}
+.error{
+  border: var(--rojo-1) solid 1px;
+}
+.lb-error{
+  color: var(--rojo-1);
+}
+
+.EstadoReserva3{
+  border: solid var(--rojo-1) 1px;
+  background-color: #faebec;
+
+}
+
+.EstadoReserva2{
+  border: solid var(--verde-1) 1px;
+  background-color: #e7f3eb;
+
+}
+
+.EstadoReserva1{
+  border: solid var(--azul-1) 1px;
+  background-color: #e6eef5;
+
+}

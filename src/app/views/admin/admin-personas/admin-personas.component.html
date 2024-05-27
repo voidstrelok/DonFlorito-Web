@@ -1,0 +1,47 @@
+@if ($personas != undefined) {
+    <div class="acciones mb-3">
+    </div>
+    <div class="lista-persona">
+      <div class="hstack persona">
+        <div class="col-lg-1 text-center bryant-bold">
+          Id
+        </div>
+        <div class="col-lg-2 text-center bryant-bold">
+          Rut
+        </div>
+        <div class="col-lg-4 text-center bryant-bold">
+          Nombre
+        </div>
+        <div class="col-lg-3 text-center bryant-bold">
+          Email/Teléfono
+        </div>
+        <!-- <div class="col text-end bryant-bold">
+          Acciones
+        </div> -->
+      </div>
+    @for (persona of $personas| slice: (pagina-1) * elemPagina : pagina * elemPagina;; track $index) {
+      <div class="persona hstack mb-1 EstadoPersona{{persona.isEnabled}}">
+        <div class="col-lg-1 text-center">
+          {{persona.id}}
+        </div>
+        <div class="col-lg-2 text-center">
+            {{persona.rut}}
+        </div>
+        <div class="col-lg-4 text-center">      
+          {{persona.nombre}} {{persona.apellidoPaterno}} {{persona.apellidoMaterno}}
+        </div>
+        <div class="col-lg-3 text-center">
+          {{persona.email}}
+          {{persona.telefono}}
+        </div>      
+        <!-- <div class="col text-end">
+          @if(persona.isEnabled){
+            <a style="cursor:pointer" title="Cancelar Reserva" (click)="null"><i class="rojo bi bi-x-circle"></i></a>
+          }
+        </div> -->
+      </div>
+    }
+    <ngb-pagination [collectionSize]="$personas.length" [pageSize]="elemPagina" [(page)]="pagina" [directionLinks]="false" />
+  
+  </div>
+  }

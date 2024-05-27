@@ -1,0 +1,54 @@
+mat-toolbar {
+  display:flex;
+  position: fixed;
+  justify-content: space-between;
+  height: var(--alto-navbar);
+  z-index: 2;
+  border-bottom: 0.5px var(--fondo-panel) solid;
+}
+
+
+.navbar-logo{
+  margin-left: 4%;
+  overflow: hidden;
+}
+.navbar-logo img{
+  max-width: 70%;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.navbar-link{
+  font-family: 'Bryant Bold';
+  margin: 0 15px;
+  color: #00529F;
+  text-decoration: none;
+  font-size: 1.5rem
+}
+
+.navbar-link-dropdown{
+  font-family: 'Bryant Bold';
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #00529F;
+
+}
+.selector-idioma{
+  font-family: 'Bryant Bold';
+  max-width: 120px;
+  margin-left: 1rem;
+}
+
+@media (max-width: 500px) { /* hasta sm */
+
+  .navbar-logo{
+    margin-left: 0;
+    overflow: hidden;
+  }
+  .navbar-logo img{
+    max-width: 94%;
+  }
+  
+}

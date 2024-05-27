@@ -1,0 +1,107 @@
+
+<div class="mb-5">
+  <div class="boton-servicios hstack">
+    <div class="col-lg-2">
+      <img src="../../../assets/res/florito/futbol.png">
+    </div>
+    <div class="col-lg-10">
+      <h1>{{"canchas-de-futbol" | translate}}</h1>
+    </div>
+  </div>  <p class="texto-servicios" [innerHTML]="'desc-canchas'|translate"></p>
+  <ngb-carousel
+    #carousel
+    [interval]="5000"
+    [pauseOnHover]="pauseOnHover"
+    [pauseOnFocus]="pauseOnFocus"
+    (slide)="onSlide($event)"
+  >
+    @for (img of imgCanchas; track img; let i = $index) {
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="img"/>
+        </div>
+      </ng-template>
+    }
+  </ngb-carousel>
+</div>
+
+<div class="mb-5">
+  <div class="boton-servicios hstack" style="background-color: #DC7E4E;">
+    <div class="col-lg-2">
+      <img src="../../../assets/res/florito/tenis.png">
+    </div>
+    <div class="col-lg-10">
+      <h1>{{"canchas-de-tenis" | translate}}</h1>
+    </div>
+  </div><p class="texto-servicios" [innerHTML]="'desc-tenis'|translate"></p>
+  <ngb-carousel
+	#carousel
+	[interval]="5000"
+	[pauseOnHover]="pauseOnHover"
+	[pauseOnFocus]="pauseOnFocus"
+	(slide)="onSlide($event)"
+>
+	@for (img of imgTenis; track img; let i = $index) {
+		<ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img [src]="img"/>
+      </div>
+		</ng-template>
+	}
+</ngb-carousel>
+</div>
+
+<div class="mb-5">
+  <div class="boton-servicios hstack" style="background-color: #3FBFEF;">
+    <div class="col-lg-2">
+      <img src="../../../assets/res/florito/piscina.png">
+    </div>
+    <div class="col-lg-10">
+      <h1>{{"piscinas" | translate}}</h1>
+    </div>
+  </div>  <p class="texto-servicios" [innerHTML]="'desc-piscinas'|translate"></p>
+  <ngb-carousel
+    #carousel
+    [interval]="5000"
+    [pauseOnHover]="pauseOnHover"
+    [pauseOnFocus]="pauseOnFocus"
+    (slide)="onSlide($event)"
+  >
+    @for (img of imgPiscinas; track img; let i = $index) {
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="img" alt="My image {{ i + 1 }} description" />
+        </div>
+      </ng-template>
+    }
+  </ngb-carousel>
+</div>
+
+
+<div class="mb-5">
+  <div class="boton-servicios hstack" style="background-color: #d03543;">
+    <div class="col-lg-2">
+      <img src="../../../assets/res/florito/quinchos.png">
+    </div>
+    <div class="col-lg-10">
+      <h1>{{"quinchos" | translate}}</h1>
+    </div>
+  </div><p class="texto-servicios" [innerHTML]="'desc-quinchos'|translate"></p>
+  <ngb-carousel
+	#carousel
+	[interval]="5000"
+	[pauseOnHover]="pauseOnHover"
+	[pauseOnFocus]="pauseOnFocus"
+	(slide)="onSlide($event)"
+>
+	@for (img of imgQuinchos; track img; let i = $index) {
+		<ng-template ngbSlide>
+				<div class="picsum-img-wrapper">
+					<img [src]="img" alt="My image {{ i + 1 }} description" />
+				</div>
+		</ng-template>
+	}
+</ngb-carousel>
+</div>
+
+

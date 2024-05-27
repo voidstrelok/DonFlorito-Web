@@ -1,0 +1,79 @@
+<app-loading></app-loading>
+@if(!isAutorizado)
+{
+  <div class="row text-center">
+  <h1 class="azul">Acceso Administración</h1>
+  <div class="col-lg-6 offset-lg-3">
+    <div class="input-group mb-3">
+      <span class="input-group-text">Usuario</span>
+      <input type="text" id="usuario" class="form-control">
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text">Contraseña</span>
+      <input type="password" id="pass" class="form-control">
+    </div>
+    <h5 class="rojo">{{msgError}}</h5>
+    <button class="btn btn-azul"(click)="AdminLogin()">Ingresar</button>
+  </div>  
+</div>
+}
+@else {
+  <h1 class="azul">Administración del sitio</h1>
+<div class="panel-admin">
+  <div class="admin-nav">
+    <ul ngbNav #nav="ngbNav" class="nav-tabs">
+      <li [ngbNavItem]="1" [destroyOnHide]="true">
+        <button ngbNavLink>Reservas</button>
+        <ng-template ngbNavContent>
+          <p>
+            <admin-reservas></admin-reservas>
+          </p>
+        </ng-template>
+      </li>
+      <li [ngbNavItem]="2" [destroyOnHide]="true">
+        <button ngbNavLink>Reservas Especiales</button>
+        <ng-template ngbNavContent>
+          <p>
+            <admin-reservas-especiales></admin-reservas-especiales>
+          </p>
+        </ng-template>
+      </li>
+      <!-- <li [ngbNavItem]="3">
+        <button ngbNavLink>Pagos</button>
+        <ng-template ngbNavContent>
+          <p>
+            pagos component
+          </p>
+        </ng-template>
+      </li> -->
+      <li [ngbNavItem]="4">
+        <button ngbNavLink>Personas</button>
+        <ng-template ngbNavContent>
+          <p>
+            <admin-personas></admin-personas>
+          </p>
+        </ng-template>
+      </li>
+      <li [ngbNavItem]="5">
+        <button ngbNavLink>Servicios</button>
+        <ng-template ngbNavContent>
+          <p>
+            <admin-servicios></admin-servicios>
+          </p>
+        </ng-template>
+      </li>
+      <li [ngbNavItem]="6">
+        <button ngbNavLink>Configuración</button>
+        <ng-template ngbNavContent>
+          <p>
+            <admin-config></admin-config>
+          </p>
+        </ng-template>
+      </li>
+    </ul>
+    
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+    
+  </div>
+</div>
+}
