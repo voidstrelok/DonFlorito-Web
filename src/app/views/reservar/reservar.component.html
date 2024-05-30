@@ -1,5 +1,5 @@
 @if (params != undefined) { 
-  <div id="reservar1" [(hidden)]="!carroVisible" *ngIf="params.reservasEnabled">
+  <div id="reservar1" [hidden]="!carroVisible" *ngIf="params.reservasEnabled">
     <h1 class="text-center titulo-1 verde">{{ "1-seleccionar-servicios" | translate }}</h1>
     <h4 class="text-center azul parrafos">
       <a href="contacto">{{ "reservas-especiales-contacto" | translate }}</a>

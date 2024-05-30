@@ -24,7 +24,7 @@
                     <div class="parrafos text-start azul fs-5" *ngIf="tipoServicio.servicio.length >= 1">({{ tipoServicio.servicio.length }} {{ "canchas-disponibles" | translate }})</div>
                   </div>                                        
                     <div class=" precio-servicio parrafos azul text-start"
-                      >{{ tipoServicio.precioServicio[0].precio }}$
+                      >${{ tipoServicio.precioServicio[0].precio }}
                       {{ "por-cada-partido-de" | translate }}
                       {{ tipoServicio.precioServicio[0].minutos }}
                       {{ "minutos" | translate }}

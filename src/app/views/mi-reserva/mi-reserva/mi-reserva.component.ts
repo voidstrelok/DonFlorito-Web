@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnInit, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { APIService } from '../../../services/api.service';
 import { ReservaDTO } from '../../../models/ReservaDTO';
@@ -10,7 +10,7 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { identifierName } from '@angular/compiler';
 import { Observable, catchError, delay, throwError } from 'rxjs';
 import { CountdownComponent, CountdownEvent } from 'ngx-countdown';
-import { getTime, millisecondsToSeconds } from 'date-fns';
+import { getTime, millisecondsToSeconds, nextDay } from 'date-fns';
 import { ReservaCreacionDTO } from '../../../models/ReservaCreacionDTO';
 import { ReservaServicioCreacionDTO } from '../../../models/ReservaServicioCreacionDTO';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -25,7 +25,7 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class MiReservaComponent implements OnInit {
   private modalService = inject(NgbModal);
-
+  tiempoEspera = 300 //segundos
   BuscarOtraReserva() {
     location.replace('mi-reserva');
   }
@@ -146,8 +146,16 @@ export class MiReservaComponent implements OnInit {
         sessionStorage.removeItem('reserva');
         const modalRef = this.modalService.open(ModalError);
         modalRef.componentInstance.error = "Se ha cancelado la reserva. Demasiados intentos de pago. (Too many retries)."; 
-        this.loading.loadingOff()
-        this.buscarReservaVisible = true;
+        modalRef.result.then((data) => {
+          sessionStorage.removeItem('reserva')
+          location.reload()
+          
+        },
+        (error) => {
+          sessionStorage.removeItem('reserva')
+          location.reload()
+        });
+        
       }
       else{
         this.PagarReserva = true;
@@ -155,7 +163,7 @@ export class MiReservaComponent implements OnInit {
         this.estadoReserva = 'azul';
             let hoy = new Date();
             let segundos =
-              300 -
+              this.tiempoEspera -
               millisecondsToSeconds(
                 getTime(hoy) - getTime(this.NuevaReserva.fechaIngreso)
               );
@@ -164,8 +172,16 @@ export class MiReservaComponent implements OnInit {
               sessionStorage.removeItem('reserva');
               const modalRef = this.modalService.open(ModalError);
               modalRef.componentInstance.error = "Se agotó el tiempo para realizar el pago (Payment timeout)."; 
-              delay(5000)
-              location.reload()
+              modalRef.result.then((data) => {
+                sessionStorage.removeItem('reserva')
+                location.reload()
+                
+              },
+              (error) => {
+                sessionStorage.removeItem('reserva')
+                location.reload()
+              });
+              
             }
             this.loading.loadingOff();        
         this.route.queryParams.subscribe((q) => {
@@ -178,7 +194,7 @@ export class MiReservaComponent implements OnInit {
               },
               error: err =>{
                 const modalRef = this.modalService.open(ModalError);
-                modalRef.componentInstance.error = err.error; 
+                modalRef.componentInstance.error = err.error;                
                 this.loading.loadingOff();
   
               }
@@ -201,7 +217,19 @@ export class MiReservaComponent implements OnInit {
   reserva404Visible = false;
   timer = { leftTime: 0, notify: 0 };
   handleEvent(e: CountdownEvent) {
-    if (e.left == 0) location.reload();
+    if (e.left == 0) {
+              const modalRef = this.modalService.open(ModalError);
+      modalRef.componentInstance.error = "Se agotó el tiempo para realizar el pago (Payment timeout)."; 
+              modalRef.result.then((data) => {
+                sessionStorage.removeItem('reserva')
+                location.reload()
+                
+              },
+              (error) => {
+                sessionStorage.removeItem('reserva')
+                location.reload()
+              });
+    };
     
   }
 }
@@ -211,7 +239,7 @@ export class MiReservaComponent implements OnInit {
 	template: `
 		<div class="modal-header">
 			<h4 class="modal-title">Error</h4>
-			<button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss()"></button>
+			<button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss();"></button>
 		</div>
 		<div class="modal-body">
 			<p>{{error}}</p>
@@ -223,6 +251,5 @@ export class MiReservaComponent implements OnInit {
 })
 export class ModalError {
 	activeModal = inject(NgbActiveModal);
-
 	@Input() error!: string;
 }

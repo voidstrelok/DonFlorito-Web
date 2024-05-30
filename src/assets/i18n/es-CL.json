@@ -20,7 +20,7 @@
   "confirmar-reserva": "Confirmar Reserva",
   "total-reserva": "Total de la reserva",
   "info-reserva": "Información de la reserva",
-  "datos-obligatorios":"*Datos Obligatorios",
+  "datos-obligatorios":"* Datos Obligatorios",
   "buscar-reserva": "Buscar Reserva",
   "buscar-otra-reserva": "< Buscar otra reserva",
   "instruccion-buscar-reserva": "Ingrese su N° de reserva",
@@ -33,7 +33,7 @@
   "enlace-terminos": "../../../assets/res/doc/terminos-condiciones-ES.pdf",
   "leer-terminos":"Antes de confirmar su reserva, favor leer los términos de uso y reglamento interno del complejo.",
   "btn-terminos":"Términos de uso",
-  "mensaje-confirmar-reserva":"Al 'Confirmar Reserva' declara aceptar los terminos y condiciones de uso del complejo.",
+  "mensaje-confirmar-reserva":"Al 'Confirmar Reserva' declara aceptar los términos y condiciones de uso del complejo.",
 
   "1-seleccionar-servicios": "1.- Seleccionar Servicios",
   "2-datos-cliente": "2.- Datos del Cliente",
@@ -94,6 +94,7 @@
 
   "inicio": "INICIO",
   "contacto": "CONTACTO",
+  "contactoFooter": "Contacto",
   "mi-reserva": "MI RESERVA",
   "como-llegar": "¿CÓMO LLEGAR?",
   "reservar": "RESERVAR",

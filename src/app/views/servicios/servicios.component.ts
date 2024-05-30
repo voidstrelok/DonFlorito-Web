@@ -38,7 +38,7 @@ export class ServiciosComponent implements OnInit {
     let i = 1;
     let continua = true;
     while (i<=max) {
-        imagenes.push(environment.URL + 'assets/res/fotos/' + tipo + '/' + i.toString() + '.jpg');
+        imagenes.push('assets/res/fotos/' + tipo + '/' + i.toString() + '.jpg');
         i+=1
     }
     return imagenes;

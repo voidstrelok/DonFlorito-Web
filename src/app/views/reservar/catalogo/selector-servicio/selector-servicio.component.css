@@ -36,10 +36,10 @@
 }
 
 div .cal-event-container{
-  left: 3% !important;
-  width: 97% !important;
+  left: 14% !important;
+  width: 86% !important;
 }
 
 .cal-week-view .cal-time {
-  width: 80px;
+  width: 100px;
 }
