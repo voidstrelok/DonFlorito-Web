@@ -1,74 +1,80 @@
-  <div class="acciones mb-3 text-end">
-    <div class="hstack">
-      <h4 class="azul">Fecha:&nbsp;</h4>
-      <select  id="anio" [selectedIndex]="selAnio" (change)="Refrescar()">
-        <option value="2024">2024</option>
-        <option value="2025">2025</option>
-        <option value="2026">2026</option>
-        <option value="2027">2027</option>
-      </select>
-      <select id="mes" [selectedIndex]="selMes" (change)="Refrescar()">
-        <option value="1">Enero</option>
-        <option value="2">Febrero</option>
-        <option value="3">Marzo</option>
-        <option value="4">Abril</option>
-        <option value="5">Mayo</option>
-        <option value="6">Junio</option>
-        <option value="7">Julio</option>
-        <option value="8">Agosto</option>
-        <option value="9">Septiembre</option>
-        <option value="10">Octubre</option>
-        <option value="11">Noviembre</option>
-        <option value="12">Diciembre</option>
-      </select>
+<div class="acciones mb-3 text-end">
+  <div class="hstack">
+    <h4 class="azul">Fecha:&nbsp;</h4>
+    <select id="anio" [selectedIndex]="selAnio" (change)="Refrescar()">
+      <option value="2024">2024</option>
+      <option value="2025">2025</option>
+      <option value="2026">2026</option>
+      <option value="2027">2027</option>
+    </select>
+    <select id="mes" [selectedIndex]="selMes" (change)="Refrescar()">
+      <option value="1">Enero</option>
+      <option value="2">Febrero</option>
+      <option value="3">Marzo</option>
+      <option value="4">Abril</option>
+      <option value="5">Mayo</option>
+      <option value="6">Junio</option>
+      <option value="7">Julio</option>
+      <option value="8">Agosto</option>
+      <option value="9">Septiembre</option>
+      <option value="10">Octubre</option>
+      <option value="11">Noviembre</option>
+      <option value="12">Diciembre</option>
+    </select>
+  </div>
+</div>
+@if ($reservas != undefined) {
+@if ($reservas.length== 0) {
+<h4 class="text-center">No hay reservas este mes.</h4>
+}@else {
+<div class="lista-reserva">
+  <div class="hstack reserva">
+    <div class="col-lg-1 text-center bryant-bold">
+      Código
+    </div>
+    <div class="col-lg-2 text-center bryant-bold">
+      Fecha
+    </div>
+    <div class="col-lg-3 text-center bryant-bold">
+      Cliente
+    </div>
+    <div class="col text-center bryant-bold">
+      Estado
+    </div>
+    <div class="col text-end bryant-bold">
+      Acciones
     </div>
   </div>
-@if ($reservas != undefined) {
-  
-  <div class="lista-reserva">
-    <div class="hstack reserva">
-      <div class="col-lg-1 text-center bryant-bold">
-        Código
-      </div>
-      <div class="col-lg-2 text-center bryant-bold">
-        Fecha
-      </div>
-      <div class="col-lg-3 text-center bryant-bold">
-        Cliente
-      </div>
-      <div class="col text-center bryant-bold">
-        Estado
-      </div>
-      <div class="col text-end bryant-bold">
-        Acciones
-      </div>
-    </div>
-    
-  @for (reserva of $reservas| slice: (pagina-1) * elemPagina : pagina * elemPagina;; track $index) {
-    <div class="reserva hstack mb-1 EstadoReserva{{reserva.estadoReserva.id}}">
-      <div class="col-lg-1 text-center">
-        {{"DF"+reserva.id}}
-      </div>
-      <div class="col-lg-2 text-center">
-        {{reserva.fechaReserva | date : "shortDate"}}
-      </div>
-      <div class="col-lg-3 text-center">
-        {{reserva.persona.nombre}} {{reserva.persona.apellidoPaterno}}
-      </div>
-      <div class="col text-center">
-        {{reserva.estadoReserva.nombre}}
-      </div>
-      <div class="col text-end">
-        <a href="mi-reserva/{{reserva.id}}" title="Información Reserva"><i class="bi bi-info-circle"></i></a>&nbsp;
-        @if(reserva.idEstadoReserva == 2){
-          <a style="cursor:pointer" title="Cancelar Reserva" (click)="CancelarReserva(reserva.id)"><i class="rojo bi bi-x-circle"></i></a>
 
-        }
-        
-      </div>
+  @for (reserva of $reservas| slice: (pagina-1) * elemPagina : pagina * elemPagina;; track $index) {
+  <div class="reserva hstack mb-1 EstadoReserva{{reserva.estadoReserva.id}}">
+    <div class="col-lg-1 text-center">
+      {{"DF"+reserva.id}}
     </div>
+    <div class="col-lg-2 text-center">
+      {{reserva.fechaReserva | date : "shortDate"}}
+    </div>
+    <div class="col-lg-3 text-center">
+      {{reserva.persona.nombre}} {{reserva.persona.apellidoPaterno}}
+    </div>
+    <div class="col text-center">
+      {{reserva.estadoReserva.nombre}}
+    </div>
+    <div class="col text-end">
+      <a href="mi-reserva/{{reserva.id}}" title="Información Reserva"><i class="bi bi-info-circle"></i></a>&nbsp;
+      @if(reserva.idEstadoReserva == 2){
+      <a style="cursor:pointer" title="Cancelar Reserva" (click)="CancelarReserva(reserva.id)"><i
+          class="rojo bi bi-x-circle"></i></a>
+
+      }
+
+    </div>
+  </div>
   }
-  <ngb-pagination [collectionSize]="$reservas.length" [pageSize]="elemPagina" [(page)]="pagina" [directionLinks]="false" />
+  <ngb-pagination [collectionSize]="$reservas.length" [pageSize]="elemPagina" [(page)]="pagina"
+    [directionLinks]="false" />
 
 </div>
+}
+
 }

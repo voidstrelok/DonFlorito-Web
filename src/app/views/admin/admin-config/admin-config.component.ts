@@ -22,29 +22,39 @@ import { config } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.Default,
 })
 export class AdminConfigComponent implements OnInit{
-Cambio() {
-console.log(this.apertura);
+
+warnVisible= false;
+successVisible = false;
+
+
+  Cambio() {
+this.warnVisible=false
+this.successVisible=false
 }
+
+
 
 CambiarSistemaReservas(cambio: boolean) {
   this.$config.reservasEnabled = cambio
+  this.warnVisible=false
+this.successVisible=false
 }
+
+
 GuardarCambios() {
 
-  let exito = document.getElementById("successCambios") as HTMLElement
-  let warn = document.getElementById("warnHorario") as HTMLElement
 
 
   if(this.apertura.hour == this.cierre.hour && this.apertura.minute >= this.cierre.minute){
-    warn.hidden = false
+    this.warnVisible = true
     return
   }
 
   if(this.apertura.hour > this.cierre.hour){
-    warn.hidden = false
+    this.warnVisible = true
     return
   }
-    warn.hidden = true
+  this.warnVisible = false
 
   let config : ConfigDTO ={
     hApertura: this.apertura.hour,
@@ -55,13 +65,19 @@ GuardarCambios() {
     piscinasEnabled: this.$config.piscinasEnabled,
     servicios : this.$config.servicios
   }  
+
+  this.loading.loadingOn()
   this.api.Session.GuardarConfig(config).subscribe({
     next : (r: any) => {
-      exito.hidden=false
-      //TODO recargar pagina
+      this.successVisible = true;
+      this.loading.loadingOff()
+    },
+    error : ()=>{
+      location.reload()
     }
   })
 }
+
 CambiaReservas(index :number) {
   if(index == 11){
     this.$config.piscinasEnabled = !this.$config.piscinasEnabled
@@ -76,7 +92,7 @@ CambiaReservas(index :number) {
   constructor(private api : APIService, private loading: LoadingService){}
 
   ngOnInit(): void {
-    this.loading.loadingOn
+    this.loading.loadingOn()
     this.api.Session.GetConfig().subscribe({
       next: r=> {        
         this.apertura.hour= r.hApertura
@@ -84,7 +100,7 @@ CambiaReservas(index :number) {
         this.cierre.hour= r.hCierre
         this.cierre.minute = r.mCierre  
         this.$config = r               
-        this.loading.loadingOff
+        this.loading.loadingOff()
       },
       error: err=> location.replace("/")    
     })

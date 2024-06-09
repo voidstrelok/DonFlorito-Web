@@ -17,6 +17,8 @@ import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AdminServiciosComponent implements OnInit {
 
+  warnVisible= false;
+  successVisible = false;
   $config!: ConfigDTO
 
   constructor(private api : APIService, private loading: LoadingService){}
@@ -32,25 +34,26 @@ export class AdminServiciosComponent implements OnInit {
     }) }
 
   CambiaReservas(index :number) {
+    this.warnVisible=false
+    this.successVisible=false
     if(index == 11){
       this.$config.piscinasEnabled = !this.$config.piscinasEnabled
       return
     }
     this.$config.servicios[index].isEnabled = !this.$config.servicios[index].isEnabled
-
+    
   }    
 
   CambiaPrecio(index: number,el : Event) {
     let precio = el.target as HTMLInputElement
     this.$config.servicios[index].precio = Number(precio.value)
     this.$config.servicios[index].cambiaPrecio = true
+    this.warnVisible=false
+    this.successVisible=false
 
 }
 
   GuardarCambios() {
-
-    let exito = document.getElementById("successCambios") as HTMLElement
-    let warn = document.getElementById("warnHorario") as HTMLElement
   
     let config : ConfigDTO ={
       hApertura: this.$config.hApertura,
@@ -61,11 +64,14 @@ export class AdminServiciosComponent implements OnInit {
       piscinasEnabled: this.$config.piscinasEnabled,
       servicios : this.$config.servicios
     }  
-    
+    this.loading.loadingOn()
     this.api.Session.GuardarConfig(config).subscribe({
       next : (r: any) => {
-        exito.hidden=false
-        //TODO recargar pagina
+        this.successVisible=true
+        this.loading.loadingOff()
+      },
+      error: ()=>{
+        location.reload()
       }
     })
   }

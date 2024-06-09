@@ -29,7 +29,8 @@ export class AdminReservasEspecialesComponent {
   IngresarReservaEspecial() {  
     this.api.Servicios.getAllTipoServicios().subscribe({
       next: r=> {
-        this.servicios = r.filter(r=>r.id < 6 ) as TipoServicioDTO[];
+        this.servicios = r.filter(r=>r.id < 7 ) as TipoServicioDTO[];
+        this.servicios.push({id:7,nombre:"Piscinas",servicio:[],maxPartidos:0,precioServicio:[]})
         const modalRef = this.modalService.open(ModalIngresar);
         modalRef.componentInstance.$servicios = this.servicios;
         modalRef.componentInstance.IngresarCorrecto.subscribe({
@@ -165,7 +166,7 @@ export class AdminReservasEspecialesComponent {
       <div class="modal-body">
         <p>Ingrese los detalles de la reserva especial. Esta reserva ocupará el horario seleccionado para el servicio seleccionado. 'Todo el recinto' significa que la reserva aplicará para todos los servicios.</p>       
             <h4 class="text-center azul">Servicio</h4>
-            <select  class="form-select" (change)="TipoSelected($event)" [(disabled)]="isRecinto">
+            <select  class="form-select" (change)="TipoSelected($event)" [disabled]="isCamping || isCanchas">
             <option value=0 selected>--Seleccionar Tipo Servicio--</option>
             @if($servicios != undefined){
               @for (tipo of $servicios; track $index) {
@@ -173,7 +174,7 @@ export class AdminReservasEspecialesComponent {
               }
             }              
             </select>
-            <select class="form-select" [disabled]="tipoSeleccionado == undefined || isRecinto" (change)="ServicioSelected($event)">
+            <select class="form-select" [disabled]="tipoSeleccionado == undefined || isCamping || isCanchas" (change)="ServicioSelected($event)">
             <option value=0 selected>--Seleccionar Servicio--</option>
               @if(tipoSeleccionado != undefined){
                 @for (serv of tipoSeleccionado.servicio; track $index) {
@@ -185,9 +186,15 @@ export class AdminReservasEspecialesComponent {
 
           <div class="col-lg-12 text-center mt-5">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="isRecinto" [checked]="isRecinto" (change)="CambiaRecinto()">
-              <label class="form-check-label" for="isRecinto">
-                <h5 class="rojo">Todo el Recinto</h5>
+              <input class="form-check-input" type="checkbox" value="" id="isCanchas" [checked]="isCanchas" (change)="CambiaCanchas()">
+              <label class="form-check-label" for="isCanchas">
+                <h5 class="rojo">Todas las canchas</h5>
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="isCamping" [checked]="isCamping" (change)="CambiaCamping()">
+              <label class="form-check-label" for="isCamping">
+                <h5 class="rojo">Todo el camping</h5>
               </label>
             </div>
           </div>
@@ -233,7 +240,7 @@ export class AdminReservasEspecialesComponent {
             <div class="modal-body" id="msgConfirmar">
             @if(toDate != undefined){
               <p >Se ingresará una reserva para:</p> 
-              <strong><p>{{isRecinto?"Todo el recinto": (servicioSeleccionado!=undefined?tipoSeleccionado.nombre+": "+servicioSeleccionado.nombre:tipoSeleccionado.nombre)}}</p></strong>
+              <strong><p>{{isCamping&&isCanchas?"Todo el recinto":(isCanchas?"Todas las canchas":(isCamping?"Todo el camping":(servicioSeleccionado!=undefined?tipoSeleccionado.nombre+": "+servicioSeleccionado.nombre:tipoSeleccionado.nombre)))}}</p></strong>
               <p>Desde <strong>{{fromDate.day+"-"+fromDate.month+"-"+fromDate.year+", "+(time1.hour | number :"2.0-0")+":"+ (time1.minute | number :"2.0-0")}}</strong></p>
               <p>Hasta <strong>{{toDate.day+"-"+toDate.month+"-"+toDate.year+", "+(time2.hour | number :"2.0-0")+":"+ (time2.minute | number :"2.0-0")}}</strong></p>            
             }
@@ -253,7 +260,8 @@ export class AdminReservasEspecialesComponent {
   export class ModalIngresar implements OnInit{
     
     confirmar = false
-    isRecinto = false
+    isCamping = false
+    isCanchas= false
     correcto = false
     msgError = ""
     desde : Date = new Date()
@@ -272,8 +280,8 @@ export class AdminReservasEspecialesComponent {
         this.msgError = "Falta indicar fecha final."
         return
       }
-      if(this.tipoSeleccionado == undefined && !this.isRecinto){
-        this.msgError = "Seleccionar servicio o seleccionar 'Todo el recinto'."
+      if(this.tipoSeleccionado == undefined && (!this.isCamping && !this.isCanchas)){
+        this.msgError = "Seleccionar servicios."
         return
       }
       if(this.fromDate.equals(this.toDate) && (this.time1.hour >= this.time2.hour && this.time1.minute >= this.time2.minute)){
@@ -282,18 +290,20 @@ export class AdminReservasEspecialesComponent {
       }
       this.confirmar = true
     }
-    CambiaRecinto(){
-      this.isRecinto = !this.isRecinto      
+    CambiaCanchas(){
+      this.isCanchas = !this.isCanchas
+    }
+    CambiaCamping(){
+      this.isCamping = !this.isCamping      
     }
     TipoSelected(tipo : Event){
-      let selTipo = tipo.target as HTMLSelectElement      
+      let selTipo = tipo.target as HTMLSelectElement
       this.tipoSeleccionado = this.$servicios.find(s=>s.id == Number(selTipo.value)) as TipoServicioDTO
 
     }
     ServicioSelected(serv : Event){
       let selServ = serv.target as HTMLSelectElement      
       this.servicioSeleccionado = this.tipoSeleccionado.servicio.find(s=>s.id == Number(selServ.value)) as ServicioDTO
-      console.log(this.servicioSeleccionado);
       
     }
     tipoSeleccionado!: TipoServicioDTO
@@ -311,10 +321,10 @@ export class AdminReservasEspecialesComponent {
         fechaComienzo : new Date(this.fromDate.year,this.fromDate.month-1,this.fromDate.day,this.time1.hour-4,this.time1.minute),
         fechaTermino : new Date(toFecha.year,toFecha.month-1,toFecha.day,this.time2.hour-4,this.time2.minute),
         idServicio : this.servicioSeleccionado!=undefined?this.servicioSeleccionado.id:null,
-        isRecinto : this.isRecinto,
+        isCamping : this.isCamping,
+        isCanchas : this.isCanchas,
         idTipoServicio : this.tipoSeleccionado!=undefined?this.tipoSeleccionado.id:null
       };
-      console.log(this.time1,this.time2);
       
       this.api.Reservas.IngresarReservaEspecial(this.reservaCreacion).subscribe({
         next: r=>{

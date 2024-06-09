@@ -20,8 +20,8 @@
 </div>
 <hr>
 <div class="text-center">
-    <ngb-alert type="danger" id="warnHorario" hidden>Horario de funcionamiento no válido.</ngb-alert>
-    <ngb-alert type="success" id="successCambios" hidden>Cambios guardados con éxito.</ngb-alert>
+    <div class="alert alert-danger" role="alert" *ngIf="warnVisible">Horario de funcionamiento no válido.</div>
+    <div class="alert alert-success" role="alert" *ngIf="successVisible">Cambios guardados con éxito.</div>
 
     <button class="btn btn-azul btn-grande" (click)="GuardarCambios()">Guardar Cambios</button>
 

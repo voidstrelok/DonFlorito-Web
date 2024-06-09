@@ -29,7 +29,6 @@ export class PersonasService {
   Post(persona:PersonaCreacionDTO) : Observable<PersonaDTO>
   {
     let body = JSON.stringify(persona)
-    console.log(body);
     const httpOptions = {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     }

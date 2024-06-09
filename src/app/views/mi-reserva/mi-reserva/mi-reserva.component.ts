@@ -105,9 +105,7 @@ export class MiReservaComponent implements OnInit {
 
     if (sessionV != null) {
       NReserva = JSON.parse(sessionV) as ReservaDTO;
-    }
-
-    
+    }  
 
     if (this.IdReserva != null) {
       this.api.Reservas.getById(Number(this.IdReserva)).subscribe({

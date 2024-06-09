@@ -7,7 +7,8 @@ export interface ReservaEspecialDTO {
   idTipoServicio: number|null;
   fechaComienzo:  Date;
   fechaTermino:   Date;
-  isRecinto:      boolean;
+  isCanchas:      boolean;
+  isCamping:      boolean;
   isEnabled:      boolean;
   servicio:       ServicioDTO|null;
   tipoServicio:   TipoServicioDTO|null;

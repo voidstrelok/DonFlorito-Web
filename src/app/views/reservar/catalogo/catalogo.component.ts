@@ -43,7 +43,6 @@ guardarCarro() {
     //check carro con items
   if(this.Carro.length == 0)
     {
-      console.log("error");      
     }else{
       let fechaajuste = this.fechaReserva.split('-')      
       this.reserva = {
@@ -181,8 +180,7 @@ GuardarZonaQuincho($event: { idQuincho: number; }) {
 
   Quinchos = {} as TipoServicioDTO | undefined;
   Piscinas: TipoServicioDTO[] = [];
-  ngOnInit(): void {
-
+  ngOnInit(): void {    
     if (this.catalogo.length > 0) {
       this.hayCanchas =
         this.catalogo.find(

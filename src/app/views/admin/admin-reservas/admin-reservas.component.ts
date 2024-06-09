@@ -6,6 +6,7 @@ import { LoadingService } from '../../../services/loading.service';
 import { delay, retry } from 'rxjs';
 import { NgbActiveModal, NgbModal, NgbModalConfig, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { nextThursday } from 'date-fns';
+import { LoadingComponent } from "../../base/loading/loading.component";
 
 @Component({
   selector: 'admin-reservas',
@@ -72,11 +73,11 @@ selMes = (new Date()).getMonth()
   
  }
  @Component({
-	selector: 'modal',
-	standalone: true,
-  imports:[CommonModule],
-  changeDetection: ChangeDetectionStrategy.Default,
-	template: `
+    selector: 'modal',
+    standalone: true,
+    changeDetection: ChangeDetectionStrategy.Default,
+    template: `
+      <app-loading></app-loading>
 		<div class="modal-header">
 			<h4 class="modal-title">Atención</h4>
 			<button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss()"></button>
@@ -84,7 +85,8 @@ selMes = (new Date()).getMonth()
 		<div class="modal-body">
 			<p>{{mensaje}}</p>
 		</div>
-		<div class="modal-footer">
+    @if(footerVisible){
+      <div class="modal-footer">
       @if(btnOk){
         <button type="button" class="btn btn-azul btn-outline-dark" (click)="activeModal.dismiss();">Ok</button>
 
@@ -93,23 +95,30 @@ selMes = (new Date()).getMonth()
         <button type="button" class="btn btn-rojo btn-outline-dark" (click)="ConfirmaCancelacion()">Cancelar Reserva</button>
       }
 		</div>
+    }
+		
 	`,
+    imports: [CommonModule, LoadingComponent]
 })
 export class Modal{
 
   constructor(private api : APIService, private loading: LoadingService){}
   mensaje = "Al cancelar la reserva, el cliente será notificado y deberá coordinar la devolución del pago. El horario reservado quedará disponible para ser reservado."
   btnOk= false;
+  footerVisible=true
   @Input() idReserva!: number;
   @Output() CancelarCorrecto = new EventEmitter<{evento:boolean}>();
 
   ConfirmaCancelacion(){
+  this.footerVisible=false
+
     this.loading.loadingOn()
 
     this.api.Reservas.CancelarReserva(this.idReserva).subscribe({
       next: r=>{
         this.mensaje = "La reserva ha sido cancelada con éxito."
         this.btnOk = true
+        this.footerVisible=true
         this.CancelarCorrecto.emit({evento:this.btnOk})
       },
       error: err=>{

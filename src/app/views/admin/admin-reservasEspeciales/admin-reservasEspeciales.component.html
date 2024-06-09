@@ -61,11 +61,16 @@
           <div class="col text-center">
             {{reserva.fechaTermino | date : "short"}}
           </div>   
-          @if(reserva.isRecinto){
+          @if(reserva.isCanchas){
             <div class="col text-center">
-              Todo el recinto
+              Todas las canchas
             </div>  
-          }@else if(reserva.tipoServicio) {
+          }@else if(reserva.isCamping){
+            <div class="col text-center">
+              Todo el camping
+            </div>  
+          }
+          @else if(reserva.tipoServicio) {
             <div class="col text-center">
               {{reserva.tipoServicio.nombre}}
               @if(reserva.servicio !=null)

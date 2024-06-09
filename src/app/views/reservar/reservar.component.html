@@ -31,7 +31,7 @@
     {
       <app-catalogo [fechaReserva]="fechaReserva" [catalogo]="catalogo$" (carroFinal)="catalogoEmit($event)"/>
     }@else {
-      <h1 class="rojo">{{"sin-servicios"}}</h1>
+      <h1 class="rojo">{{"sin-servicios" | translate}}</h1>
     }
     }
      
@@ -195,12 +195,14 @@
 	</div>
 	<div class="modal-body">
 			<div class="mb-3 text-center">
-        <div class="parrafos azul">{{"leer-terminos"| translate}}</div>
+        <div class="parrafos azul fs-4">{{"leer-terminos"| translate}}</div><br>
 				<a class="btn btn-azul" target="_blank" href="{{'enlace-terminos' | translate}}">{{"btn-terminos" | translate}}</a>
 			</div>
 	</div>
-	<div class="modal-footer">
-    <div class="parrafos rojo">{{"mensaje-confirmar-reserva"|translate}}</div>
-		<button type="button" class="btn btn-azul" [disabled]="carroEnviado" (click)="carroEnviado=true;modal.close();enviarCarro();">{{"confirmar-reserva"|translate}}</button>
+	<div class="modal-footer text-center">
+    <div class="parrafos rojo fs-4">{{"mensaje-confirmar-reserva"|translate}}</div>
+    <div class="col">		
+      <button type="button" class="btn btn-rojo" [disabled]="carroEnviado" (click)="carroEnviado=true;modal.close();enviarCarro();">{{"confirmar-reserva"|translate}}</button>
+    </div>
 	</div>
 </ng-template>

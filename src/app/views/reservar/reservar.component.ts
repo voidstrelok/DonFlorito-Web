@@ -59,7 +59,7 @@ carroEnviado = false;
   email: string = '';
   telefono: string = '';
 
-  catalogo$!: TipoServicioDTO[];
+  catalogo$!: TipoServicioDTO[] | undefined;
   params!: ParametrosDTO;
   private modalService = inject(NgbModal);
   carroReady = false;
@@ -202,6 +202,7 @@ carroEnviado = false;
     ) as HTMLElement;
     error.innerText = String.fromCharCode(160);
     el.classList.remove('error');
+    
   }
 
   validarInput(element: string, tipo: number): boolean {
@@ -254,11 +255,17 @@ carroEnviado = false;
       ).subscribe({
         next : r =>{
 
-          this.persona = r;
+          this.persona = r;          
           if (this.persona != null) {
             this.reserva.idPersona = this.persona.id
             this.MuestraDatosPersona();
           } else {
+            if(this.formularioVisible)
+              {
+                this.resetFormulario()
+                this.formularioEnabled = true
+                this.personaCreacion = { rut:rutmodel.formatted,segundoNombre:"",apellidoMaterno:"",apellidoPaterno:"",email:"",nombre:"",telefono:0}
+              }
             this.formularioVisible = true;
           }
           this.loadingservice.loadingOff();
@@ -289,6 +296,9 @@ carroEnviado = false;
   regresarAlCarro() {
     this.carroVisible = true;
     this.personaVisible = false;
+    this.resetFormulario()
+    this.personaCreacion = { rut:"",segundoNombre:"",apellidoMaterno:"",apellidoPaterno:"",email:"",nombre:"",telefono:0}
+    this.formularioVisible = false
     window.scrollTo({
       top: 0,
       behavior: "smooth"
@@ -316,8 +326,9 @@ carroEnviado = false;
     let date = d || new Date();
     let dia = date.getDay();
     let hoy = new Date();
+    
     hoy.setHours(0, 0, 0, 0);
-    return date > hoy && dia !== 1; //TODO Controla martes a domingo
+    return date > hoy && dia !== 1 && date.getMonth() == hoy.getMonth(); //TODO Controla martes a domingo y solo mes actual
   };
 
 
@@ -327,19 +338,25 @@ carroEnviado = false;
     let fecha = event.value;
     let hoy = new Date();
     hoy.setHours(0, 0, 0, 0);
-
+    if(fecha?.getMonth() != hoy.getMonth()){
+      const modalRef = this.modalService.open(ModalError);
+        modalRef.componentInstance.error = "Fecha no disponible para la reserva. (Date not available for reservation)";  
+        this.catalogo$ = []
+        this.loadingservice.loadingOff()
+      return
+    }
+    
     if (fecha) {
       if (fecha >= hoy) {
-        sessionStorage.removeItem('reserva');
-
         //si cambia fecha, resetear carro
         //cargar nuevas dispo
+        this.catalogo$ = undefined
+        this.fechaReserva = fecha.toLocaleString('es-CL').split(',')[0];
         this.api.Servicios.getCatalogo(this.fechaReserva).subscribe((data) => {
           if (data == null) location.replace("500");
           else this.catalogo$ = data;
           this.loadingservice.loadingOff();
         });
-        this.fechaReserva = fecha.toLocaleString('es-CL').split(',')[0];
       } else {
         this.loadingservice.loadingOff();
       }

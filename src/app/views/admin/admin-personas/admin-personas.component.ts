@@ -35,9 +35,7 @@ elemPagina = 6
     this.loading.loadingOn()
     this.api.Personas.getPersonas().pipe(retry(3), delay(1000)).subscribe({
       next: r => {
-        this.$personas = r
-        console.log(this.$personas);
-        
+        this.$personas = r        
         this.loading.loadingOff()
       },
       error: err=> location.reload()
