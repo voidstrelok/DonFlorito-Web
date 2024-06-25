@@ -18,7 +18,10 @@
 </div>
 }
 @else {
-  <h1 class="azul">Administración del sitio</h1>
+  <div class="hstack">
+    <h1 class="azul">Administración del sitio</h1>
+    <button class="btn btn-rojo logout" (click)="CerrarSesion()">Cerrar Sesión</button>
+  </div>
 <div class="panel-admin">
   <div class="admin-nav">
     <ul ngbNav #nav="ngbNav" class="nav-tabs">

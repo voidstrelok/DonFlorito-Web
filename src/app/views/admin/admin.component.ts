@@ -29,6 +29,10 @@ import { AdminReservasEspecialesComponent } from "./admin-reservasEspeciales/adm
     ]
 })
 export class AdminComponent implements OnInit {
+CerrarSesion() {
+  sessionStorage.removeItem("session")
+  location.reload()
+}
 msgError = ""
 
   constructor(private api : APIService, private loading: LoadingService){}

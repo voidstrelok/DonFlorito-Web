@@ -22,6 +22,9 @@ export class AppComponent {
 
   ngOnInit(): void {
     //check si home
+    if(localStorage.getItem("lang")==null){
+      localStorage.setItem("lang","es-CL")
+    }
     this.esHome = this.location.path() == '';
   }
 

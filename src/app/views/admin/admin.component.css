@@ -11,3 +11,6 @@
 .nav-link.active{
   color: var(--azul-1);
 }
+.logout{
+  font-size: 1rem;
+}

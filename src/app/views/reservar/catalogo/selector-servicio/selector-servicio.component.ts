@@ -12,7 +12,7 @@ import {
 
 import {
   format,
-  getHours, sub
+sub
 } from 'date-fns';
 import { Observable, Subject, elementAt, min } from 'rxjs';
 import { EventColor } from 'calendar-utils';
@@ -226,12 +226,14 @@ totalMinutos: any;
           this.reservas$ = this.api.Servicios.getCalendarioByServicio(this.tipoServicio.servicio[0].id,1,this.fechaReserva)
           this.reservas$.subscribe(r=>{
             this.reservas = r;    
+            console.log(this.parametros);
+            
             if(this.tipoServicio?.precioServicio[0].minutos)
             {
               this.selectedServicio = this.tipoServicio.servicio[0].id
               this.minutos= this.tipoServicio.precioServicio[0].minutos*1
-              this.apertura = getHours(this.parametros.horaApertura)
-              this.cierre = getHours(sub(this.parametros.horaCierre,{minutes: this.minutos}))
+              this.apertura = new Date(this.parametros.horaApertura).getHours()
+              this.cierre = new Date(sub(this.parametros.horaCierre,{minutes: this.minutos})).getHours()
               this.maxPartidos = Math.round(((this.cierre - this.apertura) / (this.minutos/60) )+1)
 
             }          
