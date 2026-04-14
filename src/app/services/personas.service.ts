@@ -13,7 +13,7 @@ export class PersonasService {
 
   constructor(private http: HttpClient) {}
 
-  GetPersonaByRut(rut:string) : Observable<PersonaDTO>
+  getPersonaByRut(rut:string) : Observable<PersonaDTO>
   {
     const formData = new FormData();
     formData.append('RUT', rut);
@@ -22,11 +22,10 @@ export class PersonasService {
 
   getPersonas() : Observable<PersonaDTO[]>
   {
-    const headers = { 'Authorization': "Bearer "+sessionStorage.getItem("session") as string }
-    return this.http.get<PersonaDTO[]>(this.API_URL+"getPersonas",{headers})
+    return this.http.get<PersonaDTO[]>(this.API_URL+"getPersonas")
   }
 
-  Post(persona:PersonaCreacionDTO) : Observable<PersonaDTO>
+  createPersona(persona:PersonaCreacionDTO) : Observable<PersonaDTO>
   {
     let body = JSON.stringify(persona)
     const httpOptions = {

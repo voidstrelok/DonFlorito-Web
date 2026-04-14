@@ -96,7 +96,7 @@ carroEnviado = false;
   enviarCarro() {
 
     this.loadingservice.loadingOn();    
-    this.api.Reservas.NuevaReserva(this.reserva).subscribe({
+    this.api.Reservas.nuevaReserva(this.reserva).subscribe({
       next: r => {
         sessionStorage.setItem("reserva",JSON.stringify(r))
         location.replace("mi-reserva")
@@ -250,7 +250,7 @@ carroEnviado = false;
       let rutmodel = RutModel.fromString(this.personaCreacion.rut);
       this.loadingservice.loadingOn();
 
-      this.api.Personas.GetPersonaByRut(
+      this.api.Personas.getPersonaByRut(
         rutmodel.number + '-' + rutmodel.dv
       ).subscribe({
         next : r =>{

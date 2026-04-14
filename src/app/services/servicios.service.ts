@@ -26,15 +26,13 @@ export class ServiciosService {
 
   getServicios() : Observable<TipoServicioDTO[]>
   {
-    const headers = { 'Authorization': "Bearer "+sessionStorage.getItem("session") as string }
-    return this.http.get<TipoServicioDTO[]>(this.API_URL+"getServicios",{headers})
+    return this.http.get<TipoServicioDTO[]>(this.API_URL+"getServicios")
   }
   getAllTipoServicios() : Observable<TipoServicioDTO[]>
   {
-    const headers = { 'Authorization': "Bearer "+sessionStorage.getItem("session") as string }
-    return this.http.get<TipoServicioDTO[]>(this.API_URL+"getAllTipoServicios",{headers})
+    return this.http.get<TipoServicioDTO[]>(this.API_URL+"getAllTipoServicios")
   }
-  GetTipoServicioById(idTipoServicio : number) : Observable<TipoServicioDTO>
+  getTipoServicioById(idTipoServicio : number) : Observable<TipoServicioDTO>
   {
     const formData = new FormData();
     formData.append('IdTipoServicio', idTipoServicio.toString());

@@ -25,7 +25,7 @@ export class AdminServiciosComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading.loadingOn
-    this.api.Session.GetConfig().subscribe({
+    this.api.Session.getConfig().subscribe({
       next: r=> {        
         this.$config = r               
         this.loading.loadingOff
@@ -65,7 +65,7 @@ export class AdminServiciosComponent implements OnInit {
       servicios : this.$config.servicios
     }  
     this.loading.loadingOn()
-    this.api.Session.GuardarConfig(config).subscribe({
+    this.api.Session.guardarConfig(config).subscribe({
       next : (r: any) => {
         this.successVisible=true
         this.loading.loadingOff()

@@ -67,7 +67,7 @@ GuardarCambios() {
   }  
 
   this.loading.loadingOn()
-  this.api.Session.GuardarConfig(config).subscribe({
+  this.api.Session.guardarConfig(config).subscribe({
     next : (r: any) => {
       this.successVisible = true;
       this.loading.loadingOff()
@@ -93,7 +93,7 @@ CambiaReservas(index :number) {
 
   ngOnInit(): void {
     this.loading.loadingOn()
-    this.api.Session.GetConfig().subscribe({
+    this.api.Session.getConfig().subscribe({
       next: r=> {        
         this.apertura.hour= r.hApertura
         this.apertura.minute = r.mApertura

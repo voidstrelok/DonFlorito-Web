@@ -127,7 +127,7 @@ export class AdminReservasEspecialesComponent {
     ConfirmaCancelacion(){
       this.loading.loadingOn()
   
-      this.api.Reservas.CancelarReservaEspecial(this.idReserva).subscribe({
+      this.api.Reservas.cancelarReservaEspecial(this.idReserva).subscribe({
         next: r=>{
           this.mensaje = "La reserva ha sido cancelada con éxito."
           this.btnOk = true
@@ -326,7 +326,7 @@ export class AdminReservasEspecialesComponent {
         idTipoServicio : this.tipoSeleccionado!=undefined?this.tipoSeleccionado.id:null
       };
       
-      this.api.Reservas.IngresarReservaEspecial(this.reservaCreacion).subscribe({
+      this.api.Reservas.ingresarReservaEspecial(this.reservaCreacion).subscribe({
         next: r=>{
           let msg = document.getElementById("msgConfirmar") as HTMLElement
           msg.innerHTML = "La reserva ha sido ingresada correctamente."

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule, Location } from '@angular/common';
-import { HomeComponent } from './views/home/home.component';
 import { NavbarComponent } from './views/base/navbar/navbar.component';
 import { LoadingComponent } from './views/base/loading/loading.component';
 import { FooterComponent } from "./views/base/footer/footer/footer.component";
@@ -13,7 +12,7 @@ import { environment } from '../environments/environment';
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [RouterOutlet, TranslateModule, NavbarComponent, HomeComponent, LoadingComponent, FooterComponent,CommonModule]
+    imports: [RouterOutlet, TranslateModule, NavbarComponent, LoadingComponent, FooterComponent,CommonModule]
 })
 export class AppComponent {
   esHome = false;

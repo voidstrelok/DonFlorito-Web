@@ -40,7 +40,7 @@ msgError = ""
     this.loading.loadingOn()
     let token = sessionStorage.getItem("session")
     if(token != null){
-      this.api.Session.SessionIsValid().subscribe({
+      this.api.Session.sessionIsValid().subscribe({
         next: r => {
           this.isAutorizado = r
         },
@@ -68,7 +68,7 @@ AdminLogin() {
     return
   }
 
-  this.api.Session.AdminLogin(usuario,pass).subscribe({
+  this.api.Session.adminLogin(usuario,pass).subscribe({
     next: r=> {
       sessionStorage.setItem("session",r)
       this.isAutorizado = true;
