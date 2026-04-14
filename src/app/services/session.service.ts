@@ -18,36 +18,33 @@ export class SessionService {
     return this.http.get<ParametrosDTO>(this.API_URL+"GetParametros")
   }
 
-  AdminLogin(usuario:string, pass:string) : Observable<string>
+  adminLogin(usuario:string, pass:string) : Observable<string>
   {
     const formData = new FormData();
     formData.append('usuario', usuario);
     formData.append('password', pass);
     return this.http.post(this.API_URL+"AdminLogin",formData,{responseType:'text'})
   }
-  SessionIsValid() : Observable<boolean>
+  sessionIsValid() : Observable<boolean>
   {
-    const headers = { 'Authorization': "Bearer "+sessionStorage.getItem("session") as string }    
-    return this.http.get<boolean>(this.API_URL+"SessionIsValid",{headers})
+    return this.http.get<boolean>(this.API_URL+"SessionIsValid")
   }
 
-  GuardarConfig(config : ConfigDTO) : any{
+  guardarConfig(config : ConfigDTO) : any{
 
     let body = JSON.stringify(config)
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': "Bearer "+sessionStorage.getItem("session") as string 
       })      
     }
     return this.http.post(this.API_URL+"GuardarConfig",body,httpOptions)
   }
 
-  GetConfig() : Observable<ConfigDTO>{
+  getConfig() : Observable<ConfigDTO>{
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': "Bearer "+sessionStorage.getItem("session") as string 
       })      
     }
     return this.http.get<ConfigDTO>(this.API_URL+"GetConfig",httpOptions)

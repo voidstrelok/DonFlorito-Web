@@ -219,7 +219,7 @@ totalMinutos: any;
 
     this.api.Session.getParametros().subscribe(p =>{
       this.parametros = p;
-      this.tipoServicio$ = this.api.Servicios.GetTipoServicioById(this.idTipoServicio)
+      this.tipoServicio$ = this.api.Servicios.getTipoServicioById(this.idTipoServicio)
       this.tipoServicio$.subscribe(ts=> {
         this.tipoServicio = ts; 
         if(!this.esModalQuincho)   {

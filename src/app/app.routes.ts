@@ -1,26 +1,14 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './views/home/home.component';
-import { ServiciosComponent } from './views/servicios/servicios.component';
-import { NotFoundComponent } from './views/base/errores/not-found/not-found.component';
-import { ContactoComponent } from './views/contacto/contacto.component';
-import { ReservarComponent } from './views/reservar/reservar.component';
-import { MiReservaComponent } from './views/mi-reserva/mi-reserva/mi-reserva.component';
-import { AdminComponent } from './views/admin/admin.component';
-import { ForbiddenComponent } from './views/base/errores/forbidden/forbidden/forbidden.component';
-import { InternalErrorComponent } from './views/base/errores/internal-error/internal-error.component';
 
 export const routes: Routes = [
-    {'path' : '' , component:HomeComponent},
-    {'path' : 'servicios' , component:ServiciosComponent},
-    {'path' : 'contacto' , component:ContactoComponent},
-    {'path' : 'reservar' , component:ReservarComponent},
-    {'path' : 'mi-reserva/:id' , component:MiReservaComponent},
-    {'path' : 'mi-reserva' , component:MiReservaComponent},
-    {'path' : 'admin' , component:AdminComponent},
-    {'path' : '403', component: ForbiddenComponent }, 
-    {'path' : '500', component: InternalErrorComponent }, 
-
-    //404
-    {'path' : '**', pathMatch: 'full', component: NotFoundComponent }, 
-
+  { path: '', loadComponent: () => import('./views/home/home.component').then((m) => m.HomeComponent) },
+  { path: 'servicios', loadComponent: () => import('./views/servicios/servicios.component').then((m) => m.ServiciosComponent) },
+  { path: 'contacto', loadComponent: () => import('./views/contacto/contacto.component').then((m) => m.ContactoComponent) },
+  { path: 'reservar', loadComponent: () => import('./views/reservar/reservar.component').then((m) => m.ReservarComponent) },
+  { path: 'mi-reserva/:id', loadComponent: () => import('./views/mi-reserva/mi-reserva/mi-reserva.component').then((m) => m.MiReservaComponent) },
+  { path: 'mi-reserva', loadComponent: () => import('./views/mi-reserva/mi-reserva/mi-reserva.component').then((m) => m.MiReservaComponent) },
+  { path: 'admin', loadComponent: () => import('./views/admin/admin.component').then((m) => m.AdminComponent) },
+  { path: '403', loadComponent: () => import('./views/base/errores/forbidden/forbidden/forbidden.component').then((m) => m.ForbiddenComponent) },
+  { path: '500', loadComponent: () => import('./views/base/errores/internal-error/internal-error.component').then((m) => m.InternalErrorComponent) },
+  { path: '**', pathMatch: 'full', loadComponent: () => import('./views/base/errores/not-found/not-found.component').then((m) => m.NotFoundComponent) },
 ];

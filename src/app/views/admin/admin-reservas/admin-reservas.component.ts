@@ -114,7 +114,7 @@ export class Modal{
 
     this.loading.loadingOn()
 
-    this.api.Reservas.CancelarReserva(this.idReserva).subscribe({
+    this.api.Reservas.cancelarReserva(this.idReserva).subscribe({
       next: r=>{
         this.mensaje = "La reserva ha sido cancelada con éxito."
         this.btnOk = true

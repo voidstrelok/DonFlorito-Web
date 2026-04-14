@@ -185,7 +185,7 @@ export class MiReservaComponent implements OnInit {
         this.route.queryParams.subscribe((q) => {
           if (q['token_ws'] != undefined) {
             this.loading.loadingOn()
-            this.api.Reservas.ConfirmarReserva(this.NuevaReserva,q['token_ws']).subscribe({
+            this.api.Reservas.confirmarReserva(this.NuevaReserva,q['token_ws']).subscribe({
               next : r=> {
                 sessionStorage.removeItem('reserva');
                 location.replace('mi-reserva/' + r.id);
