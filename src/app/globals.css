@@ -1,0 +1,264 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+@font-face {
+  font-family: 'Bryant Regular';
+  src: url('/assets/res/fonts/Bryant-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Bryant Bold';
+  src: url('/assets/res/fonts/Bryant-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Controller';
+  src: url('/assets/res/fonts/controller-five-oblicue.ttf') format('truetype');
+}
+
+:root {
+  --azul-1: #00529f;
+  --verde-1: #0e8937;
+  --rojo-1: #d03543;
+  --fondo-principal: #f2f2f2;
+  --fondo-panel: #d9d9d9;
+  --texto-parrafo: #313131;
+  --alto-navbar: 5rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+  background-color: #fff;
+  color: var(--texto-parrafo);
+}
+
+body {
+  font-family: 'Bryant Regular', Arial, sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p {
+  font-family: 'Bryant Regular';
+  font-size: 1.25rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Controller', sans-serif;
+}
+
+hr {
+  color: var(--azul-1);
+  opacity: 1;
+  border-top: 0.2rem solid;
+  max-width: 90%;
+  margin: 1.5rem auto;
+}
+
+.verde { color: var(--verde-1); }
+.azul { color: var(--azul-1); }
+.rojo { color: var(--rojo-1); }
+.bryant-bold { font-family: 'Bryant Bold', sans-serif; }
+.parrafos { font-family: 'Bryant Regular', sans-serif; }
+.lb-error { color: var(--rojo-1); font-size: 0.9rem; }
+
+.btn-azul,
+.btn-welcome {
+  background-color: var(--azul-1);
+  color: #fff;
+  border: none;
+}
+
+.btn-azul:hover,
+.btn-welcome:hover,
+.btn-rojo:hover {
+  color: #fff;
+  opacity: 0.9;
+}
+
+.btn-rojo {
+  background-color: var(--rojo-1);
+  color: #fff;
+  border: none;
+}
+
+.app-navbar {
+  min-height: var(--alto-navbar);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.navbar-logo {
+  height: 3rem;
+  width: auto;
+}
+
+.contenido-pagina {
+  min-height: 100vh;
+  padding-top: calc(var(--alto-navbar) + 2rem);
+  padding-bottom: 3rem;
+  background-image: url('/assets/res/fotos/fondo-contenido.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.panel-contenido {
+  background-color: var(--fondo-principal);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.app-footer {
+  background: #0f2b3d;
+  color: #fff;
+}
+
+.site-map {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.logo-footer { max-width: 180px; }
+.logo-webpay { max-width: 220px; }
+.thepit-firma { font-size: 0.95rem; }
+
+.app-loading-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.welcome-div {
+  min-height: 100vh;
+  padding-top: calc(var(--alto-navbar) + 3rem);
+  padding-inline: 1.5rem;
+  background: linear-gradient(rgba(255,255,255,0.65), rgba(255,255,255,0.65)), url('/assets/res/fotos/welcome.jpg') center/cover no-repeat;
+}
+
+.welcome-bar,
+.welcome-botones,
+.contenido-info {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.welcome-logo {
+  max-width: 380px;
+  display: block;
+  margin: 0 auto 2rem;
+}
+
+.welcome-botones { padding-bottom: 3rem; }
+.contenido-info { padding: 3rem 1rem 4rem; }
+.logo-info { max-width: 200px; margin-bottom: 1rem; }
+.info-home { color: var(--azul-1); }
+.mapa { margin-top: 1rem; }
+.map-fallback {
+  min-height: 320px;
+  display: grid;
+  place-items: center;
+  background: #eef4f9;
+  border-radius: 1rem;
+  color: var(--azul-1);
+}
+
+.boton-servicios {
+  padding: 1rem 1.5rem;
+  border-radius: 1rem 1rem 0 0;
+  color: #fff;
+}
+
+.boton-servicios img {
+  max-width: 64px;
+}
+
+.texto-servicios {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 0 0 1rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.service-carousel-image {
+  display: block;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.reservation-block,
+.service-selector-card,
+.admin-login {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.date-input,
+.lookup-form {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.summary-row + .summary-row {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.calendar-wrapper .fc {
+  --fc-border-color: rgba(0, 82, 159, 0.15);
+  --fc-page-bg-color: transparent;
+  --fc-neutral-bg-color: rgba(0, 82, 159, 0.06);
+}
+
+.fc .fc-timegrid-slot,
+.fc .fc-col-header-cell-cushion,
+.fc .fc-timegrid-axis-cushion {
+  font-family: 'Bryant Regular', sans-serif;
+}
+
+.selector-total {
+  color: var(--azul-1);
+}
+
+@media (max-width: 768px) {
+  .panel-contenido {
+    margin: 0 1rem;
+    padding: 1.25rem;
+  }
+
+  .service-carousel-image {
+    height: 260px;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
