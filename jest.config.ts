@@ -1,25 +1,16 @@
+import nextJest from 'next/jest.js';
 import type { Config } from 'jest';
 
+const createJestConfig = nextJest({ dir: './' });
+
 const config: Config = {
-  preset: 'jest-preset-angular',
-  setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
-  testEnvironment: 'jsdom',
-  transform: {
-    '^.+\\.(ts|mjs|js|html)$': [
-      'jest-preset-angular',
-      {
-        tsconfig: '<rootDir>/tsconfig.spec.json',
-        stringifyContentPathRegex: '\\.(html|svg)$',
-      },
-    ],
-  },
-  transformIgnorePatterns: ['node_modules/(?!.*\\.mjs$)'],
+  clearMocks: true,
+  coverageProvider: 'v8',
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
-  collectCoverage: false,
-  coverageDirectory: 'coverage',
-  coverageReporters: ['html', 'text'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  testEnvironment: 'jest-environment-jsdom',
 };
 
-export default config;
+export default createJestConfig(config);
