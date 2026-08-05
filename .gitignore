@@ -43,3 +43,6 @@ Thumbs.db
 
 src/environments/*
 !src/environments/environment.ts
+
+.next/
+.github/
