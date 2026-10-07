@@ -1,0 +1,319 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "contact": "Contact",
+    "myBooking": "My booking",
+    "book": "Book",
+    "admin": "Admin access",
+    "menu": "Menu",
+    "allServices": "All services",
+    "seeAll": "See all: {{name}}",
+    "language": "Language"
+  },
+  "common": {
+    "book": "Book now",
+    "howToGet": "How to get here",
+    "learnMore": "Learn more",
+    "comingSoon": "Photos coming soon",
+    "close": "Close",
+    "prev": "Previous",
+    "next": "Next",
+    "openMap": "Open in Google Maps",
+    "viewMap": "View site map",
+    "important": "Important"
+  },
+  "home": {
+    "eyebrow": "Quebrada Peñuelas · La Serena",
+    "title": "Sports, water and barbecues surrounded by nature",
+    "subtitle": "Football and tennis courts, pools and barbecue areas to enjoy with family and friends.",
+    "servicesTitle": "Everything in one place",
+    "aboutTitle": "Our story",
+    "about": "Founded in 2008, the Don Florito Sports Complex was created to offer a space where family and friends could enjoy football in an environment surrounded by nature and tranquility. Over the years, tennis courts, small football fields, pool areas and barbecue areas have been added, to keep offering the family-friendly and entertaining atmosphere that defines the complex.",
+    "galleryTitle": "Discover the complex",
+    "hoursTitle": "Business hours",
+    "locationTitle": "Location"
+  },
+  "servicesPage": {
+    "title": "Our services",
+    "subtitle": "Pick your plan and book online.",
+    "bookTitle": "Book directly",
+    "bookAria": "Book"
+  },
+  "serviceDetail": {
+    "choose": "Choose what to book",
+    "book": "Book"
+  },
+  "services": {
+    "canchas": {
+      "title": "Football fields and mini football",
+      "tagline": "Natural grass, shade and great atmosphere.",
+      "sections": [
+        {
+          "title": "Enjoy football in a unique natural setting",
+          "body": "Our natural grass fields offer an unparalleled playing experience. The grass is always well kept and in perfect condition, so you can play comfortably and safely."
+        },
+        {
+          "title": "Natural environment",
+          "body": "The fields are surrounded by trees that provide shade and coolness during the game. The stands let you rest and enjoy the landscape after the match."
+        },
+        {
+          "title": "Ideal for all ages",
+          "body": "Whether you are a professional or an amateur, you can enjoy football in a pleasant, family-friendly environment."
+        }
+      ],
+      "note": "The complex does not have lighting for night games."
+    },
+    "tenis": {
+      "title": "Tennis courts",
+      "tagline": "Clay, like the great tournaments.",
+      "sections": [
+        {
+          "title": "Clay courts",
+          "body": "Clay is slower than concrete, giving you more time to react and to play more elaborate points. It also offers better grip and reduces impact on the joints."
+        },
+        {
+          "title": "Tradition and prestige",
+          "body": "Clay courts are used in the world's most important tournaments, such as Roland Garros. Playing on one lets you feel the same excitement as the best players in the world."
+        }
+      ],
+      "note": ""
+    },
+    "piscinas": {
+      "title": "Pools",
+      "tagline": "Five pools and trampolines.",
+      "sections": [
+        {
+          "title": "Variety for every taste",
+          "body": "We have 5 pools and trampolines: 2 adult pools (ideal for swimming, relaxing and sunbathing), 2 children's pools with reduced depth, 1 pool exclusively for women in a private and quiet setting, and trampolines so kids can jump and have fun nonstop."
+        },
+        {
+          "title": "All the comforts",
+          "body": "All pools include access to changing rooms and restrooms. There are also grassy areas to relax in the sun, surrounded by the complex's flora and fauna."
+        }
+      ],
+      "note": ""
+    },
+    "quinchos": {
+      "title": "Barbecue areas",
+      "tagline": "Barbecue among the trees.",
+      "sections": [
+        {
+          "title": "Privileged location",
+          "body": "Our barbecue areas are in both the pool zone and the courts zone. Enjoy the landscape, the trees and the native birds while sharing a barbecue with friends and family."
+        },
+        {
+          "title": "Fully equipped",
+          "body": "Each one has a grill, sink, light, benches, trash cans and a table, ready for your arrival."
+        }
+      ],
+      "note": "Maximum capacity per barbecue area is 10 people."
+    }
+  },
+  "contactPage": {
+    "title": "Contact",
+    "subtitle": "For special bookings (large groups, events and more), write to us.",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "instagram": "Instagram",
+    "address": "Address",
+    "hours": "Hours"
+  },
+  "booking": {
+    "highlight": "Your pick",
+    "title": "Book online",
+    "steps": {
+      "choose": "Choose",
+      "details": "Your details",
+      "pay": "Payment"
+    },
+    "loading": "Loading…",
+    "loadError": "We couldn't load the information.",
+    "retry": "Try again",
+    "back": "Back",
+    "testBanner": "Test environment: payments are not real. To complete the test payment use the card provided by the development team.",
+    "disabled": {
+      "title": "Online booking is paused",
+      "text": "We can't take web bookings right now. Message us and we'll help you."
+    },
+    "date": {
+      "title": "Which day are you visiting?",
+      "hint": "We're open Tuesday to Sunday. Pick a day to see what's available.",
+      "pickFirst": "Pick a day to see the available services."
+    },
+    "services": {
+      "courts": "Courts",
+      "pool": "Pools",
+      "quincho": "Barbecue areas",
+      "empty": "No services available for this day. Try another date.",
+      "special": "Large group or event? For special bookings, write to us."
+    },
+    "court": {
+      "price": "{{price}} per match of {{min}} min",
+      "available_one": "{{count}} court available",
+      "available_other": "{{count}} courts available",
+      "pickCourt": "Court",
+      "matches": "Back-to-back matches",
+      "matchesCount_one": "{{count}} match",
+      "matchesCount_other": "{{count}} matches",
+      "total": "{{minutes}} min total · {{price}}",
+      "pickTime": "Pick a time",
+      "noSlots": "No times left for this court and duration. Try another court or fewer matches.",
+      "show": "Show times",
+      "hide": "Hide",
+      "change": "Change"
+    },
+    "pool": {
+      "title": "Pool access",
+      "help": "Per-person entry, for the day.",
+      "general": "General",
+      "generalDesc": "Adults",
+      "senior": "Seniors & children",
+      "seniorDesc": "Seniors and children aged 4 to 10",
+      "perPerson": "per person",
+      "people_one": "{{count}} person",
+      "people_other": "{{count}} people"
+    },
+    "quincho": {
+      "title": "Barbecue areas",
+      "desc": "for the day. Up to 10 people per area.",
+      "zone": "Zone",
+      "quantity": "Number of areas",
+      "count_one": "{{count}} barbecue area",
+      "count_other": "{{count}} barbecue areas"
+    },
+    "cart": {
+      "title": "Your booking",
+      "day": "Day",
+      "empty": "You haven't chosen anything yet.",
+      "total": "Total",
+      "remove": "Remove",
+      "continue": "Continue",
+      "viewDetail": "View booking details",
+      "items_one": "{{count}} service",
+      "items_other": "{{count}} services"
+    },
+    "details": {
+      "title": "Your details",
+      "subtitle": "We only use them for your booking and to send you the receipt.",
+      "rut": "RUT (Chilean ID)",
+      "rutHelp": "E.g. 12.345.678-5",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email",
+      "phone": "Phone",
+      "phoneHelp": "So we can reach you if anything changes.",
+      "remember": "Remember my details on this device",
+      "rememberHelp": "So you don't have to type them next time. Saved only in this browser.",
+      "continue": "Review and pay"
+    },
+    "errors": {
+      "required": "This field is required.",
+      "rut": "Check the RUT: it doesn't look valid.",
+      "email": "Enter a valid email, e.g. name@mail.com.",
+      "phone": "Enter a phone number with at least 8 digits.",
+      "name": "Use letters only.",
+      "terms": "You must accept the terms to continue."
+    },
+    "review": {
+      "title": "Review your booking",
+      "edit": "Edit",
+      "holder": "Booking under the name of",
+      "terms": "I accept the complex's terms of use and rules.",
+      "readTerms": "Read terms",
+      "pay": "Pay {{total}} with Webpay",
+      "paying": "Connecting to Webpay…",
+      "secure": "Secure payment with Webpay: we'll take you to the bank's site and bring you back here.",
+      "failed": "We couldn't start the payment. Check your connection and try again."
+    }
+  },
+  "consent": {
+    "text": "We use analytics cookies to understand how the site is used and improve it. You can accept or reject them.",
+    "accept": "Accept",
+    "reject": "Reject"
+  },
+  "footer": {
+    "site": "Site",
+    "contact": "Contact",
+    "rights": "All rights reserved",
+    "madeBy": "Developed by",
+    "terms": "Terms of use"
+  },
+  "errors": {
+    "notFoundTitle": "Page not found",
+    "notFound": "Oops! We couldn't find this page.",
+    "backHome": "Back to home"
+  },
+  "files": {
+    "terms": "/docs/terminos-condiciones-EN.pdf",
+    "map": "/docs/mapa-en.pdf",
+    "mapImage": "/docs/mapa-en.webp",
+    "mapThumb": "/docs/mapa-en-thumb.webp"
+  },
+  "myBooking": {
+    "title": "My booking",
+    "searchTitle": "Find a booking",
+    "searchHelp": "Enter your booking number (for example DF12345 or 12345).",
+    "number": "Booking no.",
+    "search": "Find booking",
+    "invalid": "That number isn't valid. Use digits only, with or without 'DF'.",
+    "notFound": "We couldn't find that booking. Check the number and try again.",
+    "another": "Find another booking",
+    "date": "Date",
+    "holder": "Under the name of",
+    "status": {
+      "confirmed": "Confirmed",
+      "pending": "Payment pending",
+      "cancelled": "Cancelled"
+    },
+    "successTitle": "Booking confirmed!",
+    "successText": "We've sent the receipt to {{email}}. Keep your booking number.",
+    "qr": "Your booking QR code",
+    "qrHelp": "Show it when you arrive at the complex.",
+    "pendingHelp": "This booking hasn't been paid yet, so it isn't confirmed.",
+    "resume": "Continue with payment"
+  },
+  "return": {
+    "confirming": "Confirming your payment…",
+    "dontClose": "Don't close this window, it'll only take a moment.",
+    "failedTitle": "We couldn't confirm your payment",
+    "abortedTitle": "You cancelled the payment",
+    "abortedText": "You were not charged. You can try again.",
+    "retry": "Retry payment",
+    "startOver": "Start over",
+    "tooMany": "You exceeded the maximum number of payment attempts and the booking was cancelled. You can make a new one.",
+    "noDraft": "We couldn't find a payment in progress on this device. If you already paid, look up your booking with the number we emailed you."
+  },
+  "names": {
+    "Fútbol 1": "Football 1",
+    "Fútbol 2": "Football 2",
+    "Futbolito": "Mini football",
+    "Tenis 2 Personas": "Tennis (2 players)",
+    "Tenis 4 Personas": "Tennis (4 players)",
+    "Cancha Fútbol 1": "Football Field 1",
+    "Cancha Fútbol 2": "Football Field 2",
+    "Cancha Fútbol 3": "Football Field 3",
+    "Cancha Fútbol 4": "Football Field 4",
+    "Cancha Futbolito 1": "Mini Football Field 1",
+    "Cancha Futbolito 2": "Mini Football Field 2",
+    "Cancha Tenis 2 Personas": "Tennis Court (2 players)",
+    "Cancha Tenis 4 Personas": "Tennis Court (4 players)",
+    "Quinchos Zona Canchas": "Barbecue areas, courts zone",
+    "Quinchos Zona Piscinas": "Barbecue areas, pools zone",
+    "Piscina General": "Pool, general",
+    "Piscina Adulto Mayor": "Pool, seniors & children"
+  },
+  "map": {
+    "title": "Site map",
+    "text": "Find the football fields, mini football, tennis courts, pools, barbecue areas, parking and entrances.",
+    "expand": "View larger map",
+    "open": "View site map",
+    "zoom": "Zoom in",
+    "fit": "Fit",
+    "download": "Download PDF",
+    "alt": "Site plan showing football fields 1 to 4, mini football, tennis, the pool zone, barbecue zones, parking and entrances",
+    "bookingHint": "Not sure where a zone or court is?",
+    "quinchoHint": "See where each zone is",
+    "arrival": "How to find your court or zone?"
+  }
+}

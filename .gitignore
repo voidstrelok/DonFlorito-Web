@@ -1,45 +1,55 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+# ── Dependencias ─────────────────────────────────────────────
+node_modules/
 
-# Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
+# ── Build y caché de herramientas ────────────────────────────
+dist/
+dist-ssr/
+.vite/
+*.tsbuildinfo
 
-# Node
-/node_modules
-npm-debug.log
-yarn-error.log
+# ── Configuración local y secretos (nunca versionar) ─────────
+# Sobrescritura de desarrollo de public/config/app-config.json (API propia, clave de Maps...)
+app-config.local.json
+.env
+.env.*
+!.env.example
+*.local
+*.pem
+*.key
 
-# IDEs and editors
-.idea/
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+# SQL generado por scripts/crear-admin.mjs (contiene un hash de contraseña)
+admin*.sql
 
-# Visual Studio Code
+# ── Resultados de pruebas ────────────────────────────────────
+e2e/.results/
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+coverage/
+
+# ── Logs ─────────────────────────────────────────────────────
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ── Editores y sistema operativo ─────────────────────────────
 .vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
 !.vscode/extensions.json
-.history/*
-
-# Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
-
-# System files
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 .DS_Store
 Thumbs.db
+desktop.ini
 
-src/environments/*
-!src/environments/environment.ts
+# ── Temporales ───────────────────────────────────────────────
+*.tmp
+*.bak

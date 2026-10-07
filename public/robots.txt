@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /mi-reserva
+Disallow: /reservar/
+
+# En ambientes de prueba (demo) servir este archivo con "Disallow: /" para que no se indexe.

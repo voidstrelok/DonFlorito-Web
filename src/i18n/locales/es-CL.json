@@ -1,0 +1,300 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "contact": "Contacto",
+    "myBooking": "Mi reserva",
+    "book": "Reservar",
+    "admin": "Acceso administración",
+    "menu": "Menú",
+    "allServices": "Todos los servicios",
+    "seeAll": "Ver todo: {{name}}",
+    "language": "Idioma"
+  },
+  "common": {
+    "book": "Reservar ahora",
+    "howToGet": "Cómo llegar",
+    "learnMore": "Conoce más",
+    "comingSoon": "Fotos próximamente",
+    "close": "Cerrar",
+    "prev": "Anterior",
+    "next": "Siguiente",
+    "openMap": "Abrir en Google Maps",
+    "viewMap": "Ver mapa del recinto",
+    "important": "Importante"
+  },
+  "home": {
+    "eyebrow": "Quebrada Peñuelas · La Serena",
+    "title": "Deporte, agua y asado en medio de la naturaleza",
+    "subtitle": "Canchas de fútbol y tenis, piscinas y quinchos para disfrutar en familia y con amigos.",
+    "servicesTitle": "Todo en un solo lugar",
+    "aboutTitle": "Nuestra historia",
+    "about": "Fundado en 2008, el complejo deportivo Don Florito nace con el objetivo de ofrecer un espacio donde familia y amigos pudieran disfrutar del fútbol, en un ambiente rodeado de naturaleza y tranquilidad. A lo largo de los años se han implementado canchas de tenis, canchas de futbolito, sector de piscinas y quinchos, para seguir ofreciendo el ambiente familiar y de entretención que caracteriza al complejo.",
+    "galleryTitle": "Conoce el complejo",
+    "hoursTitle": "Horario de atención",
+    "locationTitle": "Ubicación"
+  },
+  "servicesPage": {
+    "title": "Nuestros servicios",
+    "subtitle": "Elige tu panorama y reserva en línea.",
+    "bookTitle": "Reserva directo",
+    "bookAria": "Reservar"
+  },
+  "serviceDetail": {
+    "choose": "Elige qué reservar",
+    "book": "Reservar"
+  },
+  "services": {
+    "canchas": {
+      "title": "Canchas de fútbol y futbolito",
+      "tagline": "Pasto natural, sombra y buen ambiente.",
+      "sections": [
+        {
+          "title": "Disfruta del fútbol en un entorno natural único",
+          "body": "Nuestras canchas de pasto natural te ofrecen una experiencia de juego inigualable. El césped siempre está cuidado y en perfecto estado, para que juegues con comodidad y seguridad."
+        },
+        {
+          "title": "Entorno natural",
+          "body": "Las canchas están rodeadas de árboles que brindan sombra y frescura durante el juego. Además, las barracas te permiten descansar y disfrutar del paisaje después del partido."
+        },
+        {
+          "title": "Ideal para todas las edades",
+          "body": "Tanto si eres profesional como aficionado, podrás disfrutar del fútbol en un ambiente agradable y familiar."
+        }
+      ],
+      "note": "El complejo no posee iluminación para partidos en horarios nocturnos."
+    },
+    "tenis": {
+      "title": "Canchas de tenis",
+      "tagline": "Arcilla como en los grandes torneos.",
+      "sections": [
+        {
+          "title": "Canchas de arcilla",
+          "body": "La arcilla es una superficie más lenta que el cemento, lo que te da más tiempo para reaccionar y realizar jugadas más elaboradas. Además, ofrece mejor agarre y reduce el impacto en las articulaciones."
+        },
+        {
+          "title": "Tradición y prestigio",
+          "body": "Las canchas de arcilla son las más utilizadas en torneos como Roland Garros. Jugar en una te permitirá sentir la misma emoción que los mejores jugadores del mundo."
+        }
+      ],
+      "note": ""
+    },
+    "piscinas": {
+      "title": "Piscinas",
+      "tagline": "Cinco piscinas y camas elásticas.",
+      "sections": [
+        {
+          "title": "Variedad para todos los gustos",
+          "body": "Contamos con 5 piscinas y camas elásticas: 2 piscinas para adultos (ideales para nadar, relajarse y tomar sol), 2 para niños con profundidad reducida, 1 exclusiva para mujeres en un ambiente privado y tranquilo, y camas elásticas para que los niños salten y se diviertan sin parar."
+        },
+        {
+          "title": "Todas las comodidades",
+          "body": "Todas las piscinas incluyen acceso a camerinos y baños. También hay áreas de césped para relajarte tomando sol, rodeado de la flora y fauna del complejo."
+        }
+      ],
+      "note": ""
+    },
+    "quinchos": {
+      "title": "Quinchos",
+      "tagline": "Asado con vista a los árboles.",
+      "sections": [
+        {
+          "title": "Ubicación privilegiada",
+          "body": "Nuestros quinchos están en la zona de piscinas y en la zona de canchas. Disfruta del paisaje, de los árboles y de las aves autóctonas mientras compartes un asado con amigos y familia."
+        },
+        {
+          "title": "Completamente equipados",
+          "body": "Todos cuentan con parrilla, lavaplatos, luz, bancas, basureros y mesa, listos para tu llegada."
+        }
+      ],
+      "note": "La capacidad máxima por quincho es de 10 personas."
+    }
+  },
+  "contactPage": {
+    "title": "Contacto",
+    "subtitle": "Para reservas especiales (grupos numerosos, eventos, entre otros), escríbenos.",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "instagram": "Instagram",
+    "address": "Dirección",
+    "hours": "Horario"
+  },
+  "booking": {
+    "highlight": "Tu elección",
+    "title": "Reserva en línea",
+    "steps": {
+      "choose": "Elige",
+      "details": "Tus datos",
+      "pay": "Pago"
+    },
+    "loading": "Cargando…",
+    "loadError": "No pudimos cargar la información.",
+    "retry": "Reintentar",
+    "back": "Volver",
+    "testBanner": "Ambiente de pruebas: los pagos no son reales. Para completar el pago de prueba usa la tarjeta indicada por el equipo de desarrollo.",
+    "disabled": {
+      "title": "Las reservas en línea están pausadas",
+      "text": "Por ahora no podemos tomar reservas por la web. Escríbenos y te ayudamos."
+    },
+    "date": {
+      "title": "¿Qué día nos visitas?",
+      "hint": "Atendemos de martes a domingo. Elige un día para ver qué hay disponible.",
+      "pickFirst": "Elige un día para ver los servicios disponibles."
+    },
+    "services": {
+      "courts": "Canchas",
+      "pool": "Piscinas",
+      "quincho": "Quinchos",
+      "empty": "No hay servicios disponibles para este día. Prueba con otra fecha.",
+      "special": "¿Grupo grande o evento? Para reservas especiales escríbenos."
+    },
+    "court": {
+      "price": "{{price}} por partido de {{min}} min",
+      "available_one": "{{count}} cancha disponible",
+      "available_other": "{{count}} canchas disponibles",
+      "pickCourt": "Cancha",
+      "matches": "Partidos seguidos",
+      "matchesCount_one": "{{count}} partido",
+      "matchesCount_other": "{{count}} partidos",
+      "total": "{{minutes}} min en total · {{price}}",
+      "pickTime": "Elige un horario",
+      "noSlots": "No quedan horarios con esta cancha y duración. Prueba con otra cancha o con menos partidos.",
+      "show": "Ver horarios",
+      "hide": "Ocultar",
+      "change": "Cambiar"
+    },
+    "pool": {
+      "title": "Acceso a piscinas",
+      "help": "Entrada por persona, por el día.",
+      "general": "General",
+      "generalDesc": "Adultos",
+      "senior": "Adulto mayor y niños",
+      "seniorDesc": "Adulto mayor y niños de 4 a 10 años",
+      "perPerson": "por persona",
+      "people_one": "{{count}} persona",
+      "people_other": "{{count}} personas"
+    },
+    "quincho": {
+      "title": "Quinchos",
+      "desc": "por el día. Hasta 10 personas por quincho.",
+      "zone": "Zona",
+      "quantity": "N° de quinchos",
+      "count_one": "{{count}} quincho",
+      "count_other": "{{count}} quinchos"
+    },
+    "cart": {
+      "title": "Tu reserva",
+      "day": "Día",
+      "empty": "Aún no has elegido nada.",
+      "total": "Total",
+      "remove": "Quitar",
+      "continue": "Continuar",
+      "viewDetail": "Ver detalle de tu reserva",
+      "items_one": "{{count}} servicio",
+      "items_other": "{{count}} servicios"
+    },
+    "details": {
+      "title": "Tus datos",
+      "subtitle": "Los usamos solo para tu reserva y para enviarte el comprobante.",
+      "rut": "RUT",
+      "rutHelp": "Ej: 12.345.678-5",
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
+      "phoneHelp": "Para avisarte si hay algún cambio.",
+      "remember": "Recordar mis datos en este dispositivo",
+      "rememberHelp": "Para no volver a escribirlos la próxima vez. Quedan guardados solo en este navegador.",
+      "continue": "Revisar y pagar"
+    },
+    "errors": {
+      "required": "Este dato es obligatorio.",
+      "rut": "Revisa el RUT: no parece válido.",
+      "email": "Ingresa un correo válido, por ejemplo nombre@correo.cl.",
+      "phone": "Ingresa un teléfono de al menos 8 dígitos.",
+      "name": "Usa solo letras.",
+      "terms": "Debes aceptar los términos para continuar."
+    },
+    "review": {
+      "title": "Revisa tu reserva",
+      "edit": "Editar",
+      "holder": "Reserva a nombre de",
+      "terms": "Acepto los términos de uso y el reglamento del complejo.",
+      "readTerms": "Leer términos",
+      "pay": "Pagar {{total}} con Webpay",
+      "paying": "Conectando con Webpay…",
+      "secure": "Pago seguro con Webpay: te llevaremos al sitio del banco y volverás aquí.",
+      "failed": "No pudimos iniciar el pago. Revisa tu conexión e inténtalo de nuevo."
+    }
+  },
+  "consent": {
+    "text": "Usamos cookies de analítica para entender cómo se usa el sitio y mejorarlo. Puedes aceptarlas o rechazarlas.",
+    "accept": "Aceptar",
+    "reject": "Rechazar"
+  },
+  "footer": {
+    "site": "Sitio",
+    "contact": "Contacto",
+    "rights": "Todos los derechos reservados",
+    "madeBy": "Desarrollado por",
+    "terms": "Términos de uso"
+  },
+  "errors": {
+    "notFoundTitle": "Página no encontrada",
+    "notFound": "¡Vaya! No ha sido posible encontrar esta página.",
+    "backHome": "Volver al inicio"
+  },
+  "files": {
+    "terms": "/docs/terminos-condiciones-ES.pdf",
+    "map": "/docs/mapa-es.pdf",
+    "mapImage": "/docs/mapa-es.webp",
+    "mapThumb": "/docs/mapa-es-thumb.webp"
+  },
+  "myBooking": {
+    "title": "Mi reserva",
+    "searchTitle": "Buscar reserva",
+    "searchHelp": "Ingresa tu número de reserva (por ejemplo DF12345 o 12345).",
+    "number": "N° de reserva",
+    "search": "Buscar reserva",
+    "invalid": "El número no es válido. Usa solo números, con o sin 'DF'.",
+    "notFound": "No encontramos esa reserva. Revisa el número e inténtalo otra vez.",
+    "another": "Buscar otra reserva",
+    "date": "Fecha",
+    "holder": "A nombre de",
+    "status": {
+      "confirmed": "Confirmada",
+      "pending": "Pago pendiente",
+      "cancelled": "Anulada"
+    },
+    "successTitle": "¡Reserva confirmada!",
+    "successText": "Te enviamos el comprobante a {{email}}. Guarda tu número de reserva.",
+    "qr": "Código QR de tu reserva",
+    "qrHelp": "Muéstralo al llegar al complejo.",
+    "pendingHelp": "Esta reserva aún no está pagada, por lo que no está confirmada.",
+    "resume": "Continuar con el pago"
+  },
+  "return": {
+    "confirming": "Confirmando tu pago…",
+    "dontClose": "No cierres esta ventana, será solo un momento.",
+    "failedTitle": "No pudimos confirmar tu pago",
+    "abortedTitle": "Cancelaste el pago",
+    "abortedText": "No se realizó ningún cobro. Puedes intentarlo de nuevo.",
+    "retry": "Reintentar el pago",
+    "startOver": "Empezar de nuevo",
+    "tooMany": "Superaste el máximo de intentos de pago y la reserva fue anulada. Puedes hacer una nueva.",
+    "noDraft": "No encontramos un pago en curso en este dispositivo. Si ya pagaste, busca tu reserva con el número que te enviamos por correo."
+  },
+  "map": {
+    "title": "Mapa del recinto",
+    "text": "Ubica las canchas de fútbol, el futbolito, el tenis, las piscinas, los quinchos, los estacionamientos y las entradas.",
+    "expand": "Ver mapa en grande",
+    "open": "Ver mapa del recinto",
+    "zoom": "Acercar",
+    "fit": "Ajustar",
+    "download": "Descargar PDF",
+    "alt": "Plano del complejo con las canchas de fútbol 1 a 4, futbolito, tenis, zona de piscinas, zonas de quinchos, estacionamientos y entradas",
+    "bookingHint": "¿No ubicas una zona o una cancha?",
+    "quinchoHint": "Mira dónde queda cada zona",
+    "arrival": "¿Cómo llegar a tu cancha o zona?"
+  }
+}

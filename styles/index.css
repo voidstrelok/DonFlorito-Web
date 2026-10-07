@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens: única fuente de verdad de colores y tipografía.
+ * Los colores base (azul, verde, rojo) vienen del logo; naranja y celeste
+ * son los acentos que el sitio actual ya usa para tenis y piscinas.
+ */
+@theme {
+  --font-display: "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+
+  /* Azul (marca) */
+  --color-azul-50: #eef5fc;
+  --color-azul-100: #d9e8f7;
+  --color-azul-200: #b3d0ee;
+  --color-azul-300: #7fb0e0;
+  --color-azul-400: #3f86c9;
+  --color-azul-500: #0f64b0;
+  --color-azul-600: #00529f;
+  --color-azul-700: #004282;
+  --color-azul-800: #003366;
+  --color-azul-900: #00244a;
+
+  /* Verde (acción principal / reservar) */
+  --color-verde-50: #eefaf2;
+  --color-verde-100: #d5f1df;
+  --color-verde-200: #aee3c1;
+  --color-verde-400: #3fb86a;
+  --color-verde-500: #1ba04c;
+  --color-verde-600: #0e8937;
+  --color-verde-700: #0b6e2d;
+  --color-verde-800: #0a5726;
+  --color-verde-900: #07391a;
+
+  /* Rojo (alertas, errores, anulada) */
+  --color-rojo-50: #fdf0f1;
+  --color-rojo-100: #fadcdf;
+  --color-rojo-500: #e0505c;
+  --color-rojo-600: #d03543;
+  --color-rojo-700: #ac2a36;
+  --color-rojo-900: #5a141b;
+
+  /* Acentos por servicio */
+  --color-naranja-100: #fbe9df;
+  --color-naranja-500: #dc7e4e;
+  --color-naranja-700: #a9552b;
+  --color-celeste-100: #dcf3fc;
+  --color-celeste-500: #3fbfef;
+  --color-celeste-700: #0e7ca3;
+
+  /* Neutros */
+  --color-papel: #f6f7f9;
+  --color-linea: #e1e5ea;
+  --color-tinta: #1b2430;
+  --color-tinta-suave: #4b5563;
+
+  --radius-card: 1.25rem;
+  --shadow-card: 0 1px 2px rgb(16 24 40 / 0.06), 0 8px 24px -8px rgb(16 24 40 / 0.12);
+
+  --text-display: clamp(2.25rem, 1.6rem + 3vw, 4.25rem);
+  --text-title: clamp(1.75rem, 1.4rem + 1.5vw, 2.75rem);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply bg-papel font-sans text-tinta antialiased;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-balance tracking-tight;
+    line-height: 1.1;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-azul-600;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

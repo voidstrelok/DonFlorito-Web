@@ -1,0 +1,56 @@
+{
+  "apiUrl": "https://demo-donflorito.thepit.cl/api",
+  "brand": {
+    "name": "Complejo Deportivo Don Florito",
+    "foundedYear": 2008
+  },
+  "contact": {
+    "phone": "+56995278783",
+    "phoneDisplay": "+569 9527 8783",
+    "whatsapp": "56995278783",
+    "email": "contacto@donflorito.cl",
+    "address": "Parcela 226, Quebrada Peñuelas"
+  },
+  "social": {
+    "instagram": "complejo_don_florito"
+  },
+  "hours": {
+    "text": {
+      "es-CL": "Martes a Domingo · 9:00 – 19:00",
+      "en-US": "Tuesday to Sunday · 9:00 AM – 7:00 PM"
+    }
+  },
+  "maps": {
+    "apiKey": "",
+    "mapId": "",
+    "center": {
+      "lat": -29.9528848,
+      "lng": -71.2521104
+    },
+    "marker": {
+      "lat": -29.9528848,
+      "lng": -71.252003
+    },
+    "zoom": 17
+  },
+  "analytics": {
+    "ga4Id": "",
+    "consentRequired": true
+  },
+  "payments": {
+    "showTestBanner": true
+  },
+  "features": {
+    "admin": true,
+    "english": true
+  },
+  "booking": {
+    "daysAhead": 30,
+    "closedWeekdays": [
+      1
+    ],
+    "allowSameDay": false,
+    "maxPoolTickets": 10,
+    "maxQuinchos": 10
+  }
+}

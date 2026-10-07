@@ -1,0 +1,12 @@
+# Saltos de línea consistentes entre Windows y Linux (CI, servidor)
+* text=auto eol=lf
+
+# Binarios: nunca se normalizan
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.webp binary
+*.avif binary
+*.ico  binary
+*.pdf  binary
+*.woff2 binary
