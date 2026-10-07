@@ -1,5 +1,5 @@
 import * as Menu from '@radix-ui/react-dropdown-menu'
-import { ChevronDown, ChevronRight, Globe, Menu as MenuIcon } from 'lucide-react'
+import { ChevronDown, ChevronRight, Globe } from 'lucide-react'
 import { NavLink, Link, useMatch, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import clsx from 'clsx'
@@ -8,6 +8,7 @@ import { ButtonLink } from '../ui/button'
 import { services } from '@/content/services'
 import { useNames } from '../booking/line-label'
 import { track } from '@/lib/analytics'
+import { MobileMenu } from './mobile-menu'
 
 const menuContent = 'z-40 min-w-56 rounded-2xl bg-white p-2 shadow-(--shadow-card) ring-1 ring-linea'
 const menuItem = 'flex cursor-pointer items-center justify-between gap-3 rounded-xl px-4 py-3 text-lg font-medium text-tinta outline-none data-highlighted:bg-azul-50 data-highlighted:text-azul-700 data-[state=open]:bg-azul-50'
@@ -74,7 +75,6 @@ function ServicesNav() {
 export function Header() {
   const { t, i18n } = useTranslation()
   const { brand, features } = useConfig()
-  const navigate = useNavigate()
   const other = i18n.resolvedLanguage === 'en-US' ? 'es-CL' : 'en-US'
 
   return (
@@ -115,32 +115,7 @@ export function Header() {
             {t('nav.book')}
           </ButtonLink>
 
-          <Menu.Root>
-            <Menu.Trigger className="rounded-full p-2 text-azul-700 hover:bg-azul-50 lg:hidden" aria-label={t('nav.menu')}>
-              <MenuIcon className="size-6" />
-            </Menu.Trigger>
-            <Menu.Portal>
-              <Menu.Content align="end" sideOffset={8} className={menuContent}>
-                <Menu.Item onSelect={() => navigate('/')} className={menuItem}>{t('nav.home')}</Menu.Item>
-                <Menu.Sub>
-                  <Menu.SubTrigger className={menuItem}>
-                    {t('nav.services')}
-                    <ChevronRight aria-hidden className="size-4" />
-                  </Menu.SubTrigger>
-                  <Menu.Portal>
-                    <Menu.SubContent sideOffset={6} className={menuContent}>
-                      <ServicesMenuItems />
-                    </Menu.SubContent>
-                  </Menu.Portal>
-                </Menu.Sub>
-                {[...links, { to: '/reservar', key: 'nav.book' }].map((l) => (
-                  <Menu.Item key={l.to} onSelect={() => navigate(l.to)} className={menuItem}>
-                    {t(l.key)}
-                  </Menu.Item>
-                ))}
-              </Menu.Content>
-            </Menu.Portal>
-          </Menu.Root>
+          <MobileMenu />
         </div>
       </div>
     </header>
